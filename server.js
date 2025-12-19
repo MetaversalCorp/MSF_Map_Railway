@@ -379,13 +379,14 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
    console.log (`Database updates complete.`);
 }
 
-   async ExecSQL (sFilename) 
+   async ExecSQL (sFilename, bCreate) 
    {
       const sSQLFile = path.join (__dirname, sFilename);
       const pConfig = { ...Settings.SQL.config };
       let pConn;
 
-      delete pConfig.database; // Remove database from config to connect without it
+      if (bCreate)
+         delete pConfig.database; // Remove database from config to connect without it
       
       try 
       {
@@ -421,9 +422,9 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
          {
             // Initialize database if it doesn't exist
 //            await this.InitializeDatabase (pMVSQL);
-            await this.ExecSQL ('MSF_Map.sql');
+            await this.ExecSQL ('MSF_Map.sql', true);
 console.log ('DB Tables Installed!!!!');
-            await this.ExecSQL ('tmp.sql');
+            await this.ExecSQL ('tmp.sql', false);
 console.log ('DB Func/Proc Installed!!!!');
 
             this.ReadFromEnv (Settings.MVSF, [ "nPort", "key" ]);
