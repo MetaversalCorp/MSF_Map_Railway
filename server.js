@@ -213,8 +213,7 @@ class MVSF_Map
    async InitializeDatabase (pMVSQL)
    {
       const sDatabaseName = 'MVD_RP1_Map';
-      const sSQLFile = path.join (__dirname, 'MVD_RP1_Map.sql');
-      const sSQLGzFile = path.join (__dirname, 'MVD_RP1_Map.sql.gz');
+      const sSQLFile = path.join (__dirname, 'MSF_Map.sql');
 
       try
       {
@@ -241,14 +240,9 @@ class MVSF_Map
             {
                sSQLContent = fs.readFileSync (sSQLFile, 'utf8');
             }
-            else if (fs.existsSync (sSQLGzFile))
-            {
-               const aBuffer = fs.readFileSync (sSQLGzFile);
-               sSQLContent = zlib.gunzipSync (aBuffer).toString ('utf8');
-            }
             else
             {
-               throw new Error (`Neither ${sSQLFile} nor ${sSQLGzFile} found`);
+               throw new Error (`${sSQLFile} not found`);
             }
 
             // Parse SQL respecting DELIMITER statements
