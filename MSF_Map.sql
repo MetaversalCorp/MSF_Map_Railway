@@ -1,22 +1,22 @@
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 -- Rename [{MSF_Map}] to your desired database name
 -- This script creates a MySQL database with UTF-8 support and appropriate settings
@@ -50,24 +50,25 @@ USE MSF_Map;
 ~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 /*
    For now, anyone in this table is considered an admin and can do all adminy stuff
@@ -88,26 +89,28 @@ INSERT INTO Admin
        ( twRPersonaIx )
 VALUES ( 1            );
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMCType
 (
@@ -142,7 +145,8 @@ VALUES ( 0, ''              ),
        (16, 'Transport'     ),
        (17, 'Surface'       );
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMCObject
 (
@@ -201,7 +205,8 @@ CREATE TABLE RMCObject
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- bOp     Meaning
 -- 0       NULL
@@ -234,26 +239,28 @@ CREATE TABLE RMCObjectLog
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMEvent
 (
@@ -279,26 +286,28 @@ CREATE TABLE RMEvent
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMPType
 (
@@ -318,7 +327,8 @@ VALUES ( 0, ''         ),
        ( 1, 'Transport'),
        ( 2, 'Other'    );
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMPObject
 (
@@ -364,7 +374,8 @@ CREATE TABLE RMPObject
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- bOp     Meaning
 -- 0       NULL
@@ -397,26 +408,28 @@ CREATE TABLE RMPObjectLog
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMRoot
 (
@@ -441,7 +454,8 @@ INSERT INTO RMRoot
        ( ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMRootId, Owner_twRPersonaIx )
 VALUES ( 52,                       1,                            70,                     0,                    32,                'Root',          1                  );
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- bOp     Meaning
 -- 0       NULL
@@ -482,26 +496,28 @@ CREATE TABLE RMRootLog
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMTBuilding
 (
@@ -516,26 +532,28 @@ CREATE TABLE RMTBuilding
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMTSubsurface
 (
@@ -587,26 +605,28 @@ CREATE TABLE RMTMatrix
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMTType
 (
@@ -635,7 +655,8 @@ VALUES ( 0, ''         ),
        (10, 'Sector'   ),
        (11, 'Parcel'   );
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 CREATE TABLE RMTObject
 (
@@ -689,7 +710,8 @@ CREATE TABLE RMTObject
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- bOp     Meaning
 -- 0       NULL
@@ -722,26 +744,28 @@ CREATE TABLE RMTObjectLog
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -780,26 +804,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- TIME reports time in 1/64 sec from UTC Jan 1, 1601
 -- UNIX reports time in 1/1000 sec from UTC Jan 1, 1970
@@ -838,26 +864,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- DATETIME2  reports time in 1/10000000 sec from UTC Jan 1, 0001
 -- JavaScript reports time in 1/1000     sec from UTC Jan 1, 1970 (Unix Epoch Time)
@@ -880,26 +908,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -917,26 +947,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -966,26 +998,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1043,26 +1077,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1080,26 +1116,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1118,26 +1156,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1196,26 +1236,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1231,26 +1273,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1266,26 +1310,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1301,26 +1347,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1336,26 +1384,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1376,26 +1426,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1414,26 +1466,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1449,26 +1503,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1488,26 +1544,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1526,26 +1584,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1584,26 +1644,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1628,26 +1690,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1665,26 +1729,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1703,26 +1769,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1740,26 +1808,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -1795,26 +1865,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- Note: MySQL doesn't support table-valued functions like SQL Server
 -- This would need to be implemented as a stored procedure that creates a temporary table
@@ -1827,26 +1899,28 @@ DELIMITER ;
 --    sError                        VARCHAR (255)   NOT NULL
 -- );
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- Note: MySQL doesn't support table-valued functions like SQL Server
 -- This would need to be implemented as a stored procedure that creates a temporary table
@@ -1867,26 +1941,28 @@ DELIMITER ;
 --    sJSON_Change                  TEXT            NOT NULL
 -- );
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- Note: MySQL doesn't support table-valued functions like SQL Server
 -- This would need to be implemented as a stored procedure that creates a temporary table
@@ -1898,26 +1974,28 @@ DELIMITER ;
 --    ObjectHead_Self_twObjectIx    BIGINT
 -- );
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- This function is really Date_Current
 
@@ -1934,26 +2012,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- DATETIME2  reports time in 1/10000000 sec from UTC Jan 1, 0001
 -- S3         reports time in 1/64       sec from UTC Jan 1, 1601
@@ -1980,26 +2060,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2021,26 +2103,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 /*
    Procedures call this function to push events onto the queue.
@@ -2064,26 +2148,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 /*
    The NodeJS server calls this function periodically to retrieve events from the queue.
@@ -2141,26 +2227,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2187,26 +2275,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2271,26 +2361,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2349,26 +2441,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2427,26 +2521,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2511,26 +2607,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2585,26 +2683,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2728,26 +2828,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2833,26 +2935,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2920,26 +3024,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -2963,26 +3069,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3063,26 +3171,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3127,26 +3237,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3195,26 +3307,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3235,26 +3349,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3278,26 +3394,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3330,26 +3448,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3423,26 +3543,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3535,26 +3657,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3639,26 +3763,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3764,26 +3890,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -3887,26 +4015,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -4010,26 +4140,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 -- Note that this is not a function of the RMPObject itself, but rather a function of the two parents involved.
 
@@ -4287,26 +4419,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -4412,26 +4546,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -4552,26 +4688,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -4706,26 +4844,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -4838,26 +4978,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -4964,26 +5106,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5027,26 +5171,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5124,26 +5270,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5224,26 +5372,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5325,26 +5475,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5381,26 +5533,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5453,26 +5607,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5640,26 +5796,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5718,26 +5876,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5795,26 +5955,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5872,26 +6034,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -5918,26 +6082,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6002,26 +6168,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6080,26 +6248,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6158,26 +6328,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6245,26 +6417,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6329,26 +6503,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6403,26 +6579,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6546,26 +6724,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6630,26 +6810,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6777,26 +6959,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6882,26 +7066,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -6966,26 +7152,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7009,26 +7197,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7116,26 +7306,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7180,26 +7372,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7248,26 +7442,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7306,26 +7502,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7370,26 +7568,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7437,26 +7637,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7530,26 +7732,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7570,26 +7774,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7613,26 +7819,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7683,26 +7891,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7735,26 +7945,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7828,26 +8040,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -7929,26 +8143,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -8058,26 +8274,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -8241,26 +8459,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -8366,26 +8586,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -8489,26 +8711,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -8612,26 +8836,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -8738,26 +8964,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -8863,26 +9091,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -9003,26 +9233,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -9157,26 +9389,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -9302,26 +9536,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -9500,26 +9736,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -9683,26 +9921,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -9808,26 +10048,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -9854,26 +10096,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -9938,26 +10182,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10016,26 +10262,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10103,26 +10351,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10181,26 +10431,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10271,26 +10523,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10355,26 +10609,28 @@ BEGIN
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10424,26 +10680,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10584,26 +10842,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10668,26 +10928,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10816,26 +11078,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -10921,26 +11185,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11005,26 +11271,28 @@ END$$
 
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11048,26 +11316,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 CREATE PROCEDURE call_RMCObject_Select(
@@ -11161,26 +11431,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11225,26 +11497,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11293,26 +11567,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11333,26 +11609,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11410,26 +11688,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11453,26 +11733,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11532,26 +11814,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11586,26 +11870,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11679,26 +11965,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11769,26 +12057,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -11898,26 +12188,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -12067,26 +12359,28 @@ BEGIN
 END$$
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -12192,26 +12486,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -12315,26 +12611,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -12441,26 +12739,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -12564,26 +12864,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -12691,26 +12993,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -12816,26 +13120,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -12961,26 +13267,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13125,26 +13433,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13265,26 +13575,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13463,26 +13775,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13595,26 +13909,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13720,26 +14036,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13766,26 +14084,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13844,26 +14164,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13922,26 +14244,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -13992,26 +14316,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14153,26 +14479,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14227,26 +14555,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14370,26 +14700,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14440,26 +14772,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14588,26 +14922,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14631,26 +14967,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14694,26 +15032,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14758,26 +15098,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14798,26 +15140,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14841,26 +15185,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -14965,26 +15311,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -15088,26 +15436,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -15211,26 +15561,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -15351,26 +15703,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -15515,26 +15869,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -15655,26 +16011,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -15809,26 +16167,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -15949,26 +16309,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -16147,26 +16509,28 @@ END$$
   
 DELIMITER ;
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /*
-** Copyright 2025 Metaversal Corporation.
-** 
-** Licensed under the Apache License, Version 2.0 (the "License"); 
-** you may not use this file except in compliance with the License. 
-** You may obtain a copy of the License at 
-** 
-**    https://www.apache.org/licenses/LICENSE-2.0
-** 
-** Unless required by applicable law or agreed to in writing, software 
-** distributed under the License is distributed on an "AS IS" BASIS, 
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-** See the License for the specific language governing permissions and 
-** limitations under the License.
-** 
-** SPDX-License-Identifier: Apache-2.0
+~~ Copyright 2025 Metaversal Corporation.
+~~ 
+~~ Licensed under the Apache License, Version 2.0 (the "License"); 
+~~ you may not use this file except in compliance with the License. 
+~~ You may obtain a copy of the License at 
+~~ 
+~~    https://www.apache.org/licenses/LICENSE-2.0
+~~ 
+~~ Unless required by applicable law or agreed to in writing, software 
+~~ distributed under the License is distributed on an "AS IS" BASIS, 
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+~~ See the License for the specific language governing permissions and 
+~~ limitations under the License.
+~~ 
+~~ SPDX-License-Identifier: Apache-2.0
 */
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
 DELIMITER $$
 
@@ -16243,4 +16607,5 @@ DELIMITER ;
 
 CALL init_DefaultScene ();
 
-/* ************************************************************************************************************************** */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
