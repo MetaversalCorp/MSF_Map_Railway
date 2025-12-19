@@ -388,6 +388,7 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
       if (bCreate)
          delete pConfig.database; // Remove database from config to connect without it
       
+      console.log ('SQL Starting (' + sFilename + ')');
       try 
       {
          // Read SQL file asynchronously
@@ -397,9 +398,9 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
          pConn = await mysql.createConnection (pConfig);
 
          // Execute SQL
-         const [results] = await pConn.query (sSQLContent);
+         await pConn.query (sSQLContent);
 
-         console.log ('SQL executed successfully:', results);
+         console.log ('SQL executed successfully (' + sFilename + ')');
       } 
       catch (err) 
       {
