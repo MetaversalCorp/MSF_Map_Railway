@@ -27,6 +27,7 @@ Deploy a Metaverse Server on Railway.
    - `MYSQLUSER` - MySQL database username
    - `MYSQLPASSWORD` - MySQL database password
    - `MYSQLDATABASE` - MySQL database name
+   - `MVSADMINKEY` - Admin Key to edit your scene via Scene Assembler
    - `PUBLIC_DOMAIN` - (Optional) Public domain for your deployment (e.g., `MYAPPURL.COM`). Falls back to   `RAILWAY_PUBLIC_DOMAIN` if not set for Railway compatibility.
 
    Alternatively, you can update the `settings.json` file directly with your database configuration.
@@ -44,17 +45,17 @@ Deploy a Metaverse Server on Railway.
 ### Database Initialization
 
 The server will automatically initialize the database on first run. It will:
-- Create the `MVD_RP1_Map` database if it doesn't exist
-- Import the schema from `MVD_RP1_Map.sql`
+- Create the `MSF_Map` database if it doesn't exist
+- Import the schema from `MSF_Map.sql`
 - Set up initial data
 
 ## Configuration
 
-### Update fabric.msf.json
+### Update fabric.msf
 
-**Important:** Before running the application, you must update the `fabric.msf.json` file located in `web/public/config/`.
+**Important:** Before running the application, you must update the `fabric.msf` file located in `web/public/fabric/`.
 
-1. Open `web/public/config/fabric.msf.json`
+1. Open `web/public/fabric/fabric.msf`
 2. Find the `namespace` field in the `map` object
 3. Replace `MY_COMPANY_ID` with your RP1 Developer Center Company ID (in lowercase)
 
@@ -78,15 +79,15 @@ Example:
 - `Handlers/` - Custom request handlers
 - `web/admin/` - Admin interface files
 - `web/public/` - Public web files and assets
-- `web/public/config/fabric.msf.json` - Fabric configuration (requires company name update)
+- `web/public/fabric/fabric.msf` - Fabric configuration (requires company name update)
 
 ## Attaching Server to RP1
 
-After your server is properly configured, deployed and running, you need to get the public URL path to your `fabric.msf.json` file to attach your server to RP1.
+After your server is properly configured, deployed and running, you need to get the public URL path to your `fabric.msf` file to attach your server to RP1.
 
 The URL path will be:
 ```
-https://<YOUR_PUBLIC_DOMAIN>/config/fabric.msf.json
+https://<YOUR_PUBLIC_DOMAIN>/fabric/fabric.msf
 ```
 
 Replace `<YOUR_PUBLIC_DOMAIN>` with your actual public domain (the value you set in `PUBLIC_DOMAIN` environment variable or your deployment URL).
@@ -94,10 +95,10 @@ Replace `<YOUR_PUBLIC_DOMAIN>` with your actual public domain (the value you set
 **Example:**
 - If your `PUBLIC_DOMAIN` is `MYAPPURL.COM`, the URL would be:
   ```
-  https://MYAPPURL.COM/config/fabric.msf.json
+  https://MYAPPURL.COM/fabric/fabric.msf
   ```
 
-Use this URL in the RP1 Developer Center to attach your Fabric to RP1. 
+Use this URL in the RP1 Developer Center to attach your Fabric to RP1.
 
 ## License
 
