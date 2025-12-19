@@ -1,18 +1,18 @@
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -28,42 +28,212 @@ CREATE DATABASE IF NOT EXISTS MSF_Map;
 
 USE MSF_Map;
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-~~
-~~ MySQL Database Creation Notes:
-~~
-~~ 1. File Management: MySQL handles data files automatically. No need to specify file paths.
-~~ 2. Character Set: utf8mb4 is recommended for full UTF-8 support including emojis.
-~~ 3. Storage Engine: InnoDB is recommended for ACID compliance and foreign key support.
-~~ 4. User Management: Create dedicated users instead of using root for applications.
-~~ 5. Configuration: Many SQL Server database settings are handled in MySQL's my.cnf file.
-~~
-~~ Recommended my.cnf settings for this database:
-~~ [mysqld]
-~~ default-storage-engine=innodb
-~~ innodb_file_per_table=1
-~~ innodb_buffer_pool_size=1G  # Adjust based on available RAM
-~~ max_connections=200
-~~ query_cache_size=32M
-~~ log-bin=mysql-bin
-~~ binlog_format=ROW
-~~
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*
+**
+** MySQL Database Creation Notes:
+**
+** 1. File Management: MySQL handles data files automatically. No need to specify file paths.
+** 2. Character Set: utf8mb4 is recommended for full UTF-8 support including emojis.
+** 3. Storage Engine: InnoDB is recommended for ACID compliance and foreign key support.
+** 4. User Management: Create dedicated users instead of using root for applications.
+** 5. Configuration: Many SQL Server database settings are handled in MySQL's my.cnf file.
+**
+** Recommended my.cnf settings for this database:
+** [mysqld]
+** default-storage-engine=innodb
+** innodb_file_per_table=1
+** innodb_buffer_pool_size=1G  # Adjust based on available RAM
+** max_connections=200
+** query_cache_size=32M
+** log-bin=mysql-bin
+** binlog_format=ROW
+**
+*/
+
+DROP FUNCTION IF EXISTS ArcLength;
+DROP FUNCTION IF EXISTS DateTime2_Time;
+DROP FUNCTION IF EXISTS Date_DateTime2;
+DROP FUNCTION IF EXISTS Format_Bound;
+DROP FUNCTION IF EXISTS Format_Control;
+DROP FUNCTION IF EXISTS Format_Double;
+DROP FUNCTION IF EXISTS Format_Double3;
+DROP FUNCTION IF EXISTS Format_Double4;
+DROP FUNCTION IF EXISTS Format_Float;
+DROP FUNCTION IF EXISTS Format_Name_C;
+DROP FUNCTION IF EXISTS Format_Name_P;
+DROP FUNCTION IF EXISTS Format_Name_R;
+DROP FUNCTION IF EXISTS Format_Name_T;
+DROP FUNCTION IF EXISTS Format_ObjectHead;
+DROP FUNCTION IF EXISTS Format_Orbit_Spin;
+DROP FUNCTION IF EXISTS Format_Owner;
+DROP FUNCTION IF EXISTS Format_Properties_C;
+DROP FUNCTION IF EXISTS Format_Properties_T;
+DROP FUNCTION IF EXISTS Format_Resource;
+DROP FUNCTION IF EXISTS Format_Transform;
+DROP FUNCTION IF EXISTS Format_Type_C;
+DROP FUNCTION IF EXISTS Format_Type_P;
+DROP FUNCTION IF EXISTS Format_Type_T;
+DROP FUNCTION IF EXISTS IPstob;
+DROP FUNCTION IF EXISTS IPbtos;
+DROP FUNCTION IF EXISTS Time_Current;
+DROP FUNCTION IF EXISTS Time_DateTime2;
+
+DROP PROCEDURE IF EXISTS call_RMRoot_Event_Owner;
+DROP PROCEDURE IF EXISTS call_Error  ;
+DROP PROCEDURE IF EXISTS call_Event_Push;
+DROP PROCEDURE IF EXISTS etl_Events  ;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_Bound;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_Name;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_Orbit_Spin;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_Owner;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_Properties;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_Resource;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_RMCObject_Close;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_RMCObject_Open;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_RMTObject_Close;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_RMTObject_Open;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_Transform;
+DROP PROCEDURE IF EXISTS call_RMCObject_Event_Type;
+DROP PROCEDURE IF EXISTS call_RMCObject_Log;
+DROP PROCEDURE IF EXISTS call_RMCObject_Select(;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate_Bound;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate_Name;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate_Orbit_Spin;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate_Owner;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate_Properties;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate_Resource;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate_Transform;
+DROP PROCEDURE IF EXISTS call_RMCObject_Validate_Type;
+DROP PROCEDURE IF EXISTS get_RMCObject_Update;
+DROP PROCEDURE IF EXISTS search_RMCObject;
+DROP PROCEDURE IF EXISTS set_RMCObject_Bound;
+DROP PROCEDURE IF EXISTS set_RMCObject_Name;
+DROP PROCEDURE IF EXISTS set_RMCObject_Orbit_Spin;
+DROP PROCEDURE IF EXISTS set_RMCObject_Owner;
+DROP PROCEDURE IF EXISTS set_RMCObject_Properties;
+DROP PROCEDURE IF EXISTS set_RMCObject_Resource;
+DROP PROCEDURE IF EXISTS set_RMCObject_RMCObject_Close;
+DROP PROCEDURE IF EXISTS set_RMCObject_RMCObject_Open;
+DROP PROCEDURE IF EXISTS set_RMCObject_RMTObject_Close;
+DROP PROCEDURE IF EXISTS set_RMCObject_RMTObject_Open;
+DROP PROCEDURE IF EXISTS set_RMCObject_Transform;
+DROP PROCEDURE IF EXISTS set_RMCObject_Type;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event_Bound;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event_Name;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event_Owner;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event_Resource;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event_RMPObject_Close;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event_RMPObject_Open;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event_Transform;
+DROP PROCEDURE IF EXISTS call_RMPObject_Event_Type;
+DROP PROCEDURE IF EXISTS call_RMPObject_Log;
+DROP PROCEDURE IF EXISTS call_RMPObject_Select;
+DROP PROCEDURE IF EXISTS call_RMPObject_Validate;
+DROP PROCEDURE IF EXISTS call_RMPObject_Validate_Bound;
+DROP PROCEDURE IF EXISTS call_RMPObject_Validate_Name;
+DROP PROCEDURE IF EXISTS call_RMPObject_Validate_Owner;
+DROP PROCEDURE IF EXISTS call_RMPObject_Validate_Resource;
+DROP PROCEDURE IF EXISTS call_RMPObject_Validate_Transform;
+DROP PROCEDURE IF EXISTS call_RMPObject_Validate_Type;
+DROP PROCEDURE IF EXISTS get_RMPObject_Update;
+DROP PROCEDURE IF EXISTS set_RMPObject_Bound;
+DROP PROCEDURE IF EXISTS set_RMPObject_Name;
+DROP PROCEDURE IF EXISTS set_RMPObject_Owner;
+DROP PROCEDURE IF EXISTS set_RMPObject_Parent;
+DROP PROCEDURE IF EXISTS set_RMPObject_Resource;
+DROP PROCEDURE IF EXISTS set_RMPObject_RMPObject_Close;
+DROP PROCEDURE IF EXISTS set_RMPObject_RMPObject_Open;
+DROP PROCEDURE IF EXISTS set_RMPObject_Transform;
+DROP PROCEDURE IF EXISTS set_RMPObject_Type;
+DROP PROCEDURE IF EXISTS call_RMRoot_Event;
+DROP PROCEDURE IF EXISTS call_RMRoot_Event_Name;
+DROP PROCEDURE IF EXISTS call_RMRoot_Event_RMCObject_Close;
+DROP PROCEDURE IF EXISTS call_RMRoot_Event_RMCObject_Open;
+DROP PROCEDURE IF EXISTS call_RMRoot_Event_RMPObject_Close;
+DROP PROCEDURE IF EXISTS call_RMRoot_Event_RMPObject_Open;
+DROP PROCEDURE IF EXISTS call_RMRoot_Event_RMTObject_Close;
+DROP PROCEDURE IF EXISTS call_RMRoot_Event_RMTObject_Open;
+DROP PROCEDURE IF EXISTS call_RMRoot_Log;
+DROP PROCEDURE IF EXISTS call_RMRoot_Select;
+DROP PROCEDURE IF EXISTS call_RMRoot_Validate;
+DROP PROCEDURE IF EXISTS call_RMRoot_Validate_Name;
+DROP PROCEDURE IF EXISTS call_RMRoot_Validate_Owner;
+DROP PROCEDURE IF EXISTS get_RMRoot_Update;
+DROP PROCEDURE IF EXISTS set_RMRoot_Name;
+DROP PROCEDURE IF EXISTS set_RMRoot_Owner;
+DROP PROCEDURE IF EXISTS set_RMRoot_RMCObject_Close;
+DROP PROCEDURE IF EXISTS set_RMRoot_RMCObject_Open;
+DROP PROCEDURE IF EXISTS set_RMRoot_RMPObject_Close;
+DROP PROCEDURE IF EXISTS set_RMRoot_RMPObject_Open;
+DROP PROCEDURE IF EXISTS set_RMRoot_RMTObject_Close;
+DROP PROCEDURE IF EXISTS set_RMRoot_RMTObject_Open;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Car;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Cyl;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Geo;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Inverse;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Mult;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Nul;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Relative;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Rotate;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Scale;
+DROP PROCEDURE IF EXISTS call_RMTMatrix_Translate;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_Bound;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_Name;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_Owner;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_Properties;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_Resource;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_RMPObject_Close;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_RMPObject_Open;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_RMTObject_Close;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_RMTObject_Open;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_Transform;
+DROP PROCEDURE IF EXISTS call_RMTObject_Event_Type;
+DROP PROCEDURE IF EXISTS call_RMTObject_Log;
+DROP PROCEDURE IF EXISTS call_RMTObject_Select;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Bound;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Coord_Car;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Coord_Cyl;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Coord_Geo;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Coord_Nul;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Name;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Owner;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Properties;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Resource;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Transform;
+DROP PROCEDURE IF EXISTS call_RMTObject_Validate_Type;
+DROP PROCEDURE IF EXISTS get_RMTObject_Update;
+DROP PROCEDURE IF EXISTS search_RMTObject;
+DROP PROCEDURE IF EXISTS set_RMTObject_Bound;
+DROP PROCEDURE IF EXISTS set_RMTObject_Name;
+DROP PROCEDURE IF EXISTS set_RMTObject_Owner;
+DROP PROCEDURE IF EXISTS set_RMTObject_Properties;
+DROP PROCEDURE IF EXISTS set_RMTObject_Resource;
+DROP PROCEDURE IF EXISTS set_RMTObject_RMPObject_Close;
+DROP PROCEDURE IF EXISTS set_RMTObject_RMPObject_Open;
+DROP PROCEDURE IF EXISTS set_RMTObject_RMTObject_Close;
+DROP PROCEDURE IF EXISTS set_RMTObject_RMTObject_Open;
+DROP PROCEDURE IF EXISTS set_RMTObject_Transform;
+DROP PROCEDURE IF EXISTS set_RMTObject_Type;
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -73,7 +243,7 @@ USE MSF_Map;
    For now, anyone in this table is considered an admin and can do all adminy stuff
 */
 
-CREATE TABLE Admin
+CREATE TABLE IF NOT EXISTS Admin
 (
    twRPersonaIx                        BIGINT            NOT NULL,
 
@@ -84,32 +254,28 @@ CREATE TABLE Admin
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO Admin
-       ( twRPersonaIx )
-VALUES ( 1            );
-
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMCType
+CREATE TABLE IF NOT EXISTS RMCType
 (
    bType                               TINYINT UNSIGNED  NOT NULL,
    sType                               VARCHAR (31)      NOT NULL,
@@ -121,30 +287,9 @@ CREATE TABLE RMCType
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO RMCType
-       (bType, sType)
-VALUES ( 0, ''              ),
-       ( 1, 'Universe'      ),
-       ( 2, 'Supercluster'  ),
-       ( 3, 'Galaxy Cluster'),
-       ( 4, 'Galaxy'        ),
-       ( 5, 'Black Hole'    ),
-       ( 6, 'Nebula'        ),
-       ( 7, 'Star Cluster'  ),
-       ( 8, 'Constellation' ),
-       ( 9, 'Star System'   ),
-       (10, 'Star'          ),
-       (11, 'Planet System' ),
-       (12, 'Planet'        ),
-       (13, 'Moon'          ),
-       (14, 'Debris'        ),
-       (15, 'Satellite'     ),
-       (16, 'Transport'     ),
-       (17, 'Surface'       );
-
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMCObject
+CREATE TABLE IF NOT EXISTS RMCObject
 (
    ObjectHead_Parent_wClass            SMALLINT          NOT NULL,
    ObjectHead_Parent_twObjectIx        BIGINT            NOT NULL,
@@ -178,11 +323,11 @@ CREATE TABLE RMCObject
    Bound_dX                            DOUBLE            NOT NULL,
    Bound_dY                            DOUBLE            NOT NULL,
    Bound_dZ                            DOUBLE            NOT NULL,
-   Properties_fMass                    FLOAT             NOT NULL,
-   Properties_fGravity                 FLOAT             NOT NULL,
-   Properties_fColor                   FLOAT             NOT NULL,
-   Properties_fBrightness              FLOAT             NOT NULL,
-   Properties_fReflectivity            FLOAT             NOT NULL,
+   Properties_fMass                    FLOAT             NOT NULL,                        
+   Properties_fGravity                 FLOAT             NOT NULL,                        
+   Properties_fColor                   FLOAT             NOT NULL,                        
+   Properties_fBrightness              FLOAT             NOT NULL,                        
+   Properties_fReflectivity            FLOAT             NOT NULL,                        
 
    CONSTRAINT PK_RMCObject PRIMARY KEY
    (
@@ -217,7 +362,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 -- 10      RMCObject_Bound
 -- 11      RMCObject_Properties
 
-CREATE TABLE RMCObjectLog
+CREATE TABLE IF NOT EXISTS RMCObjectLog
 (
    dtCreated                           DATETIME          NOT NULL    DEFAULT CURRENT_TIMESTAMP,
    twLogIx                             BIGINT            NOT NULL    AUTO_INCREMENT,
@@ -237,29 +382,29 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMEvent
+CREATE TABLE IF NOT EXISTS RMEvent
 (
    twEventIx                           BIGINT            NOT NULL AUTO_INCREMENT,
 
-   sType                               VARCHAR (32)       NOT NULL,
+   sType                               VARCHAR (32)      NOT NULL,
 
    Self_wClass                         TINYINT UNSIGNED  NOT NULL,
    Self_twObjectIx                     BIGINT            NOT NULL,
@@ -267,7 +412,7 @@ CREATE TABLE RMEvent
    Child_twObjectIx                    BIGINT            NOT NULL,
    wFlags                              SMALLINT          NOT NULL,
    twEventIz                           BIGINT            NOT NULL,
-
+   
    sJSON_Object                        TEXT              NOT NULL,
    sJSON_Child                         TEXT              NOT NULL,
    sJSON_Change                        TEXT              NOT NULL,
@@ -282,25 +427,25 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMPType
+CREATE TABLE IF NOT EXISTS RMPType
 (
    bType                               TINYINT UNSIGNED  NOT NULL,
    sType                               VARCHAR (31)      NOT NULL,
@@ -312,15 +457,9 @@ CREATE TABLE RMPType
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO RMPType
-       (bType, sType)
-VALUES ( 0, ''         ),
-       ( 1, 'Transport'),
-       ( 2, 'Other'    );
-
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMPObject
+CREATE TABLE IF NOT EXISTS RMPObject
 (
    ObjectHead_Parent_wClass            SMALLINT          NOT NULL,
    ObjectHead_Parent_twObjectIx        BIGINT            NOT NULL,
@@ -380,11 +519,11 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 -- 10      RMPObject_Bound
 -- 11   -- RMPObject_Properties
 
-CREATE TABLE RMPObjectLog
+CREATE TABLE IF NOT EXISTS RMPObjectLog
 (
    dtCreated                           DATETIME          NOT NULL    DEFAULT CURRENT_TIMESTAMP,
    twLogIx                             BIGINT            NOT NULL    AUTO_INCREMENT,
-
+                                                         
    bOp                                 TINYINT UNSIGNED  NOT NULL,
    dwIPAddress                         BINARY(4)         NOT NULL,
    twRPersonaIx                        BIGINT            NOT NULL,
@@ -400,25 +539,25 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMRoot
+CREATE TABLE IF NOT EXISTS RMRoot
 (
    ObjectHead_Parent_wClass            SMALLINT          NOT NULL,
    ObjectHead_Parent_twObjectIx        BIGINT            NOT NULL,
@@ -436,10 +575,6 @@ CREATE TABLE RMRoot
    )
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO RMRoot
-       ( ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMRootId, Owner_twRPersonaIx )
-VALUES ( 52,                       1,                            70,                     0,                    32,                'Root',          1                  );
 
 /* ************************************************************************************************************************** */
 
@@ -465,11 +600,11 @@ VALUES ( 52,                       1,                            70,            
 -- 18      RMRoot_RMPObject_Open
 -- 19      RMRoot_RMPObject_Close
 
-CREATE TABLE RMRootLog
+CREATE TABLE IF NOT EXISTS RMRootLog
 (
    dtCreated                           DATETIME          NOT NULL    DEFAULT CURRENT_TIMESTAMP,
    twLogIx                             BIGINT            NOT NULL    AUTO_INCREMENT,
-
+                                                         
    bOp                                 TINYINT UNSIGNED  NOT NULL,
    dwIPAddress                         BINARY(4)         NOT NULL,
    twRPersonaIx                        BIGINT            NOT NULL,
@@ -485,59 +620,25 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMTBuilding
-(
-   twRMTObjectIx                       BIGINT            NOT NULL,  -- sector
-   bnOSMWay                            BIGINT            NOT NULL,  -- building
-
-   PRIMARY KEY
-   (
-      twRMTObjectIx                    ASC,
-      bnOSMWay                         ASC
-   )
-)
-ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-/* ************************************************************************************************************************** */
-/*
-** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-**
-** SPDX-License-Identifier: Apache-2.0
-*/
-
-/* ************************************************************************************************************************** */
-
-CREATE TABLE RMTSubsurface
+CREATE TABLE IF NOT EXISTS RMTSubsurface
 (
    twRMTObjectIx                       BIGINT            NOT NULL,
                                                                  --                        Nul      Car      Cyl      Geo
@@ -556,7 +657,7 @@ CREATE TABLE RMTSubsurface
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE RMTMatrix
+CREATE TABLE IF NOT EXISTS RMTMatrix
 (
    bnMatrix                            BIGINT            NOT NULL,
 
@@ -590,25 +691,25 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMTType
+CREATE TABLE IF NOT EXISTS RMTType
 (
    bType                               TINYINT UNSIGNED  NOT NULL,
    sType                               VARCHAR (31)      NOT NULL,
@@ -620,24 +721,9 @@ CREATE TABLE RMTType
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO RMTType
-       (bType, sType)
-VALUES ( 0, ''         ),
-       ( 1, 'Root'     ),
-       ( 2, 'Water'    ),
-       ( 3, 'Land'     ),
-       ( 4, 'Country'  ),
-       ( 5, 'Territory'),
-       ( 6, 'State'    ),
-       ( 7, 'County'   ),
-       ( 8, 'City'     ),
-       ( 9, 'Community'),
-       (10, 'Sector'   ),
-       (11, 'Parcel'   );
-
 /* ************************************************************************************************************************** */
 
-CREATE TABLE RMTObject
+CREATE TABLE IF NOT EXISTS RMTObject
 (
    ObjectHead_Parent_wClass            SMALLINT          NOT NULL,
    ObjectHead_Parent_twObjectIx        BIGINT            NOT NULL,
@@ -705,11 +791,11 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 -- 10      RMTObject_Bound
 -- 11      RMTObject_Properties
 
-CREATE TABLE RMTObjectLog
+CREATE TABLE IF NOT EXISTS RMTObjectLog
 (
    dtCreated                           DATETIME          NOT NULL    DEFAULT CURRENT_TIMESTAMP,
    twLogIx                             BIGINT            NOT NULL    AUTO_INCREMENT,
-
+                                                         
    bOp                                 TINYINT UNSIGNED  NOT NULL,
    dwIPAddress                         BINARY(4)         NOT NULL,
    twRPersonaIx                        BIGINT            NOT NULL,
@@ -725,19 +811,57 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
+** SPDX-License-Identifier: Apache-2.0
+*/
+
+/* ************************************************************************************************************************** */
+
+/*
+   Version history of database updates
+*/
+
+CREATE TABLE IF NOT EXISTS Version
+(
+   dtStamp                             DATETIME          NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   nVersion                            INT               NOT NULL,
+   sDescription                        VARCHAR (255)     NOT NULL
+
+   CONSTRAINT PK_Version PRIMARY KEY
+   (
+      nVersion                         ASC
+   )
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/* ************************************************************************************************************************** */
+/*
+** Copyright 2025 Metaversal Corporation.
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
+**    https://www.apache.org/licenses/LICENSE-2.0
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -777,25 +901,25 @@ BEGIN
 
         RETURN (2.0 * dRadius) * ASIN (SQRT ((dX * dX) + (dY * dY) + (dZ * dZ)) / (2.0 * dRadius));
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -835,25 +959,25 @@ BEGIN
 
        RETURN dt2;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -877,25 +1001,25 @@ BEGIN
       -- MySQL's UNIX_TIMESTAMP returns seconds since 1970, so multiply by 1000 for milliseconds
       RETURN UNIX_TIMESTAMP(dtStamp) * 1000;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -914,25 +1038,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "Max": ', Format_Double3 (dX, dY, dZ), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -954,34 +1078,34 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT
              (
-                '{ "wClass_Object": ', CAST(Self_wClass AS CHAR),
-                ', "twObjectIx": ',    CAST(Self_twObjectIx AS CHAR),
-                ', "wClass_Child": ',  CAST(Child_wClass AS CHAR),
-                ', "twChildIx": ',     CAST(Child_twObjectIx AS CHAR),
-                ', "wFlags": ',        CAST(wFlags AS CHAR),
-                ', "twEventIz": ',     CAST(twEventIz AS CHAR),
+                '{ "wClass_Object": ', CAST(Self_wClass AS CHAR), 
+                ', "twObjectIx": ',    CAST(Self_twObjectIx AS CHAR), 
+                ', "wClass_Child": ',  CAST(Child_wClass AS CHAR), 
+                ', "twChildIx": ',     CAST(Child_twObjectIx AS CHAR), 
+                ', "wFlags": ',        CAST(wFlags AS CHAR), 
+                ', "twEventIz": ',     CAST(twEventIz AS CHAR), 
                 ' }'
              );
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1034,31 +1158,31 @@ BEGIN
            IF (FLOOR (dA) = CEILING (dA))
          THEN
               SET sNum = CAST(dA AS CHAR);
-         ELSE
+         ELSE 
               SET sNum = FORMAT (dA, 16);
        END IF ;
 
        RETURN CONCAT (sSign, sNum, sExp);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1077,25 +1201,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('[', Format_Double(dX), ',', Format_Double(dY), ',', Format_Double(dZ), ']');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1115,25 +1239,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('[', Format_Double(dX), ',', Format_Double(dY), ',', Format_Double(dZ), ',', Format_Double(dW), ']');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1187,31 +1311,31 @@ BEGIN
            IF (FLOOR (dA) = CEILING (dA))
          THEN
                    SET sNum = CAST(dA AS CHAR);
-         ELSE
+         ELSE 
                    SET sNum = FORMAT (dA, 8);
        END IF ;
 
        RETURN CONCAT (sSign, sNum, sExp);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1228,25 +1352,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "wsRMCObjectId": "', wsRMCObjectId, '" }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1263,25 +1387,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "wsRMPObjectId": "', wsRMPObjectId, '" }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1298,25 +1422,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "wsRMRootId": "', wsRMRootId, '" }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1333,25 +1457,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "wsRMTObjectId": "', wsRMTObjectId, '" }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1373,25 +1497,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "wClass_Parent": ', CAST(Parent_wClass AS CHAR), ', "twParentIx": ', CAST(Parent_twObjectIx AS CHAR), ', "wClass_Object": ', CAST(Self_wClass AS CHAR), ', "twObjectIx": ', CAST(Self_twObjectIx AS CHAR), ', "wFlags": ', CAST(wFlags AS CHAR), ', "twEventIz": ', CAST(twEventIz AS CHAR), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1411,25 +1535,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "tmPeriod": ', CAST(tmPeriod AS CHAR), ', "tmStart": ', CAST(tmStart AS CHAR), ', "dA": ', Format_Double(dA), ', "dB": ', Format_Double(dB), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1446,25 +1570,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "twRPersonaIx": ', CAST(twRPersonaIx AS CHAR), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1485,25 +1609,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "fMass": ', Format_Float(fMass), ', "fGravity": ', Format_Float(fGravity), ', "fColor": ', Format_Float(fColor), ', "fBrightness": ', Format_Float(fBrightness), ', "fReflectivity": ', Format_Float(fReflectivity), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1523,25 +1647,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "bLockToGround": ', CAST(bLockToGround AS CHAR), ', "bYouth": ', CAST(bYouth AS CHAR), ', "bAdult": ', CAST(bAdult AS CHAR), ', "bAvatar": ', CAST(bAvatar AS CHAR), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1574,32 +1698,32 @@ BEGIN
 
         RETURN CONCAT
                (
-                  '{ ',
-                    '"qwResource": ',   CAST(qwResource AS CHAR),
-                  ', "sName": "',       sName_,
-                 '", "sReference": "',  sReference,
+                  '{ ', 
+                    '"qwResource": ',   CAST(qwResource AS CHAR), 
+                  ', "sName": "',       sName_, 
+                 '", "sReference": "',  sReference, 
                  '" }'
                );
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1625,25 +1749,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "Position": ', Format_Double3 (Position_dX, Position_dY, Position_dZ), ', "Rotation": ', Format_Double4(Rotation_dX, Rotation_dY, Rotation_dZ, Rotation_dW), ', "Scale": ', Format_Double3 (Scale_dX, Scale_dY, Scale_dZ), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1662,25 +1786,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "bType": ', CAST(bType AS CHAR), ', "bSubtype": ', CAST(bSubtype AS CHAR), ', "bFiction": ', CAST(bFiction AS CHAR), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1700,25 +1824,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "bType": ', CAST(bType AS CHAR), ', "bSubtype": ', CAST(bSubtype AS CHAR), ', "bFiction": ', CAST(bFiction AS CHAR), ', "bMovable": ', CAST(bMovable AS CHAR), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1737,25 +1861,25 @@ DETERMINISTIC
 BEGIN
       RETURN CONCAT ('{ "bType": ', CAST(bType AS CHAR), ', "bSubtype": ', CAST(bSubtype AS CHAR), ', "bFiction": ', CAST(bFiction AS CHAR), ' }');
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1772,7 +1896,7 @@ DETERMINISTIC
 BEGIN
        RETURN UNHEX (HEX (INET_ATON (sIPAddress)));
 END$$
-
+  
 DELIMITER ;
 
 DELIMITER $$
@@ -1792,25 +1916,25 @@ BEGIN
           CAST(CONV (HEX (SUBSTRING(dwIPAddress, 4, 1)), 16, 10) AS CHAR)
       );
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1830,19 +1954,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1870,19 +1994,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1901,19 +2025,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1931,25 +2055,25 @@ DETERMINISTIC
 BEGIN
        RETURN Date_DateTime2(UTC_TIMESTAMP());
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -1977,25 +2101,25 @@ BEGIN
       -- 134774 * 86400 * 64 = 745246310400
       RETURN (UNIX_TIMESTAMP(dtStamp) * 64) + 745246310400;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2018,25 +2142,25 @@ BEGIN
 
            SET nError = nError + 1;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2061,25 +2185,25 @@ BEGIN
 
            SET bError = IF (ROW_COUNT () > 0, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2124,39 +2248,39 @@ BEGIN
           FROM RMEvent AS e
           JOIN Events AS t ON t.twEventIx = e.twEventIx
       ORDER BY e.twEventIx;
-
+       
         DELETE e
           FROM RMEvent AS e
           JOIN Events AS t ON t.twEventIx = e.twEventIx;
 
         SELECT COUNT(*) AS nCount
           FROM RMEvent;
-
+       
         COMMIT ;
 
           DROP TEMPORARY TABLE Events;
 
            SET bError = 0;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2184,25 +2308,25 @@ BEGIN
 
            SET bError = IF (ROW_COUNT () = 1, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2268,25 +2392,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2346,25 +2470,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2424,25 +2548,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2470,7 +2594,7 @@ BEGIN
                  UPDATE RMPObject
                     SET Resource_qwResource = Resource_qwResource,
                         Resource_sName      = Resource_sName,
-                        Resource_sReference = Resource_sReference
+                        Resource_sReference = Resource_sReference       
                   WHERE ObjectHead_Self_twObjectIx = twRMPObjectIx;
 
                     SET bError = IF (ROW_COUNT () = 1, 0, 1);
@@ -2508,25 +2632,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2555,7 +2679,7 @@ BEGIN
                    THEN
                           DELETE FROM RMPObject                                        -- we actually want to delete the entire tree - all the way down to the pobject!
                            WHERE ObjectHead_Self_twObjectIx = twRMPObjectIx_Close;
-
+         
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
                  END IF ;
 
@@ -2582,25 +2706,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2652,7 +2776,7 @@ BEGIN
                           INSERT INTO RMPObject
                                  (ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMPObjectId, Type_bType, Type_bSubtype, Type_bFiction, Type_bMovable, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ)
                           VALUES (SBO_CLASS_RMPOBJECT,      twRMPObjectIx,                SBO_CLASS_RMPOBJECT,    0,                    32,                Name_wsRMPObjectId, Type_bType, Type_bSubtype, Type_bFiction, Type_bMovable, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ);
-
+         
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
 
                              SET twRMPObjectIx_Open = LAST_INSERT_ID ();
@@ -2725,25 +2849,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2830,25 +2954,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2917,25 +3041,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -2957,28 +3081,28 @@ BEGIN
         INSERT INTO RMPObjectLog
                (bOp, dwIPAddress, twRPersonaIx, twRMPObjectIx)
         VALUES (bOp, dwIPAddress, twRPersonaIx, twRMPObjectIx);
-
+ 
            SET bError = IF (ROW_COUNT () = 1, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3053,32 +3177,32 @@ BEGIN
                                          ),
 
                   ', "nChildren":  ',    IFNULL (cap.nCount, 0),
-                 ' }'
+                 ' }'               
                ) AS `Object`
           FROM Results   AS x
           JOIN RMPObject AS p on p.ObjectHead_Self_twObjectIx = x.ObjectHead_Self_twObjectIx
      LEFT JOIN (SELECT ObjectHead_Parent_twObjectIx, COUNT(*) AS nCount FROM RMPObject WHERE ObjectHead_Parent_wClass = SBO_CLASS_RMPOBJECT GROUP BY ObjectHead_Parent_twObjectIx) AS cap ON cap.ObjectHead_Parent_twObjectIx = p.ObjectHead_Self_twObjectIx
          WHERE x.nResultSet = nResultSet;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3124,25 +3248,25 @@ BEGIN
                    CALL call_Error (4, 'Invalid rights',           nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3192,25 +3316,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3232,25 +3356,25 @@ BEGIN
                    CALL call_Error (21, 'Name_wsRMPObjectId is NULL', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3275,25 +3399,25 @@ BEGIN
                    CALL call_Error (21, 'Owner_twRPersonaIx is invalid', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3327,25 +3451,25 @@ BEGIN
 
             -- do we want to check sName and sReference for length or invalid characters
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3420,25 +3544,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3532,25 +3656,25 @@ BEGIN
 */
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3615,12 +3739,12 @@ BEGIN
                                                AND x.ObjectHead_Parent_twObjectIx = p.ObjectHead_Self_twObjectIx
                            WHERE p.ObjectHead_Self_twObjectIx = twRMPObjectIx
                         ORDER BY x.ObjectHead_Self_twObjectIx ASC;
-
+             
                             CALL call_RMPObject_Select(0);
                             CALL call_RMPObject_Select(1);
-
+             
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (3, 'PObject does not exist', nError);
                  END IF ;
         END IF ;
@@ -3636,25 +3760,25 @@ BEGIN
            SET nResult = bCommit - 1 - nError;
 
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3727,11 +3851,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to update RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_BOUND, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -3761,25 +3885,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3846,15 +3970,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_NAME, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -3884,25 +4008,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -3973,11 +4097,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to update RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_OWNER, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -4007,25 +4131,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -4234,7 +4358,7 @@ SET nLock = GET_LOCK ('parent', 10);
                                      ELSE
                                               CALL call_Error (99, 'Internal error', nError);
                                    END IF ;
-
+                  
                                        IF bError = 0
                                      THEN
                                                SET bCommit = 1;
@@ -4252,7 +4376,7 @@ SET nLock = GET_LOCK ('parent', 10);
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_PARENT, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -4284,25 +4408,25 @@ SET nLock = RELEASE_LOCK ('parent');
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -4375,11 +4499,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to update RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_RESOURCE, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -4409,25 +4533,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -4515,11 +4639,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to delete RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_RMPOBJECT_CLOSE, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -4549,25 +4673,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -4663,17 +4787,17 @@ BEGIN
                      IF bError = 0
                    THEN
                           SELECT twRMPObjectIx_Open AS twRMPObjectIx;
-
+   
                              SET bCommit = 1;
                    ELSE
                             CALL call_Error (-1, 'Failed to insert RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_RMPOBJECT_OPEN, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -4703,25 +4827,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -4801,11 +4925,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to update RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_TRANSFORM, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -4835,25 +4959,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -4927,11 +5051,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to update RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMPObject_Log (RMPOBJECT_OP_TYPE, sIPAddress, twRPersonaIx, twRMPObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -4961,25 +5085,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5024,25 +5148,25 @@ BEGIN
 
           CALL call_RMTMatrix_Inverse (twRMTObjectIx, nResult);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5063,7 +5187,7 @@ BEGIN
 
             -- right handed (counter-clockwise rotation), Y up, negative Z forward
             -- theta == 0 degrees aligns with the +z axis
-
+         
             -- this is a special case of the geographic coordiate system with latitude = 0
 
        DECLARE dThe    DOUBLE DEFAULT RADIANS (dTheta);
@@ -5085,9 +5209,9 @@ BEGIN
             -- MXform_Rotate_Y     (MXform, dThe);                                                              -- +z axis aligns with theta
             -- MXform_Rotate_X     (MXform, 90);                                                                -- +y axis aligns with latitude = 0
             -- MXform_Rotate_Z     (MXform, 90 +/- 90);                                                         -- +y axis aligns with latitude = 0 (direction depends on dOI)
-
+         
             -- Matrix multiplication progresses left to right
-
+         
             -- [ 1   0   0   0 ]     [ 1   0   0   X ]     [  dCThe   0   dSThe   0 ]     [ 1   0    0   0 ]     [ dOI   0     0   0 ]
             -- [ 0   1   0   0 ]  X  [ 0   1   0   Y ]  X  [  0       1   0       0 ]  X  [ 0   0   -1   0 ]  X  [ 0     dOI   0   0 ]
             -- [ 0   0   1   0 ]     [ 0   0   1   Z ]     [ -dSThe   0   dCThe   0 ]     [ 0   1    0   0 ]     [ 0     0     1   0 ]
@@ -5112,7 +5236,7 @@ BEGIN
                  dOI *  dCThe ,     dOI * dSThe ,      0 ,     dRad * dSThe ,
                         0     ,           0     ,     -1 ,     dY           ,
                  dOI * -dSThe ,     dOI * dCThe ,      0 ,     dRad * dCThe ,
-                        0     ,           0     ,      0 ,     1
+                        0     ,           0     ,      0 ,     1             
                );
 
         INSERT INTO RMTMatrix
@@ -5121,25 +5245,25 @@ BEGIN
 
           CALL call_RMTMatrix_Inverse(twRMTObjectIx, nResult);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5227,19 +5351,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5296,23 +5420,23 @@ BEGIN
             IF dDeterminant <> 0
           THEN
                 SET dDeterminant_ = 1 / dDeterminant;
-
+           
                  UPDATE RMTMatrix
                     SET d00 = ( d11 * c5 - d12 * c4 + d13 * c3) * dDeterminant_,
                         d01 = (-d01 * c5 + d02 * c4 - d03 * c3) * dDeterminant_,
                         d02 = ( d31 * s5 - d32 * s4 + d33 * s3) * dDeterminant_,
                         d03 = (-d21 * s5 + d22 * s4 - d23 * s3) * dDeterminant_,
-
+           
                         d10 = (-d10 * c5 + d12 * c2 - d13 * c1) * dDeterminant_,
                         d11 = ( d00 * c5 - d02 * c2 + d03 * c1) * dDeterminant_,
                         d12 = (-d30 * s5 + d32 * s2 - d33 * s1) * dDeterminant_,
                         d13 = ( d20 * s5 - d22 * s2 + d23 * s1) * dDeterminant_,
-
+           
                         d20 = ( d10 * c4 - d11 * c2 + d13 * c0) * dDeterminant_,
                         d21 = (-d00 * c4 + d01 * c2 - d03 * c0) * dDeterminant_,
                         d22 = ( d30 * s4 - d31 * s2 + d33 * s0) * dDeterminant_,
                         d23 = (-d20 * s4 + d21 * s2 - d23 * s0) * dDeterminant_,
-
+           
                         d30 = (-d10 * c3 + d11 * c1 - d12 * c0) * dDeterminant_,
                         d31 = ( d00 * c3 - d01 * c1 + d02 * c0) * dDeterminant_,
                         d32 = (-d30 * s3 + d31 * s1 - d32 * s0) * dDeterminant_,
@@ -5322,25 +5446,25 @@ BEGIN
                     SET nResult = 1;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5378,25 +5502,25 @@ BEGIN
 
          WHERE mr.bnMatrix = bnMatrix_R;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5450,25 +5574,25 @@ BEGIN
 
           CALL call_RMTMatrix_Inverse(twRMTObjectIx, nResult);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5522,7 +5646,7 @@ BEGIN
                         (ml.d30 * mr.d02) + (ml.d31 * mr.d12) + (ml.d32 * mr.d22) + (ml.d33 * mr.d32),
                         (ml.d30 * mr.d03) + (ml.d31 * mr.d13) + (ml.d32 * mr.d23) + (ml.d33 * mr.d33)
 
-                   INTO d00, d01, d02, d03,
+                   INTO d00, d01, d02, d03, 
                         d10, d11, d12, d13,
                         d20, d21, d22, d23,
                         d30, d31, d32, d33
@@ -5553,7 +5677,7 @@ BEGIN
                         mr.d32,
                         mr.d33
 
-                   INTO d00, d01, d02, d03,
+                   INTO d00, d01, d02, d03, 
                         d10, d11, d12, d13,
                         d20, d21, d22, d23,
                         d30, d31, d32, d33
@@ -5643,19 +5767,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5715,25 +5839,25 @@ BEGIN
 
          WHERE ml.bnMatrix = bnMatrix_L;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5792,25 +5916,25 @@ BEGIN
 
          WHERE ml.bnMatrix = bnMatrix_L;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5869,25 +5993,25 @@ BEGIN
 
          WHERE ml.bnMatrix = bnMatrix_L;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5915,25 +6039,25 @@ BEGIN
 
            SET bError = IF (ROW_COUNT () = 1, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -5999,25 +6123,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6077,25 +6201,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6155,25 +6279,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6242,25 +6366,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6288,7 +6412,7 @@ BEGIN
                  UPDATE RMTObject
                     SET Resource_qwResource = Resource_qwResource,
                         Resource_sName      = Resource_sName,
-                        Resource_sReference = Resource_sReference
+                        Resource_sReference = Resource_sReference       
                   WHERE ObjectHead_Self_twObjectIx = twRMTObjectIx;
 
                     SET bError = IF (ROW_COUNT () = 1, 0, 1);
@@ -6326,25 +6450,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6373,7 +6497,7 @@ BEGIN
                    THEN
                           DELETE FROM RMPObject                                        -- we actually want to delete the entire tree - all the way down to the pobject!
                            WHERE ObjectHead_Self_twObjectIx = twRMPObjectIx_Close;
-
+         
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
                  END IF ;
 
@@ -6400,25 +6524,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6470,7 +6594,7 @@ BEGIN
                           INSERT INTO RMPObject
                                  (ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMPObjectId, Type_bType, Type_bSubtype, Type_bFiction, Type_bMovable, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ)
                           VALUES (SBO_CLASS_RMTOBJECT,      twRMTObjectIx,                SBO_CLASS_RMPOBJECT,    0,                    32,                Name_wsRMPObjectId, Type_bType, Type_bSubtype, Type_bFiction, Type_bMovable, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ);
-
+         
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
 
                              SET twRMPObjectIx_Open = LAST_INSERT_ID ();
@@ -6543,25 +6667,25 @@ BEGIN
                   END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6627,25 +6751,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6774,25 +6898,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6879,25 +7003,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -6958,30 +7082,30 @@ BEGIN
                                  '{ }',
 
                                  '{ }';
-
+                                                                                                                                                                                                                                                     
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7003,28 +7127,28 @@ BEGIN
         INSERT INTO RMTObjectLog
                (bOp, dwIPAddress, twRPersonaIx, twRMTObjectIx)
         VALUES (bOp, dwIPAddress, twRPersonaIx, twRMTObjectIx);
-
+ 
            SET bError = IF (ROW_COUNT () = 1, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7105,7 +7229,7 @@ BEGIN
                                          ),
 
                   ', "nChildren":  ',    IFNULL (cat.nCount, 0) + IFNULL (cap.nCount, 0),
-                 ' }'
+                 ' }'               
                ) AS `Object`
           FROM Results   AS x
           JOIN RMTObject AS t on t.ObjectHead_Self_twObjectIx = x.ObjectHead_Self_twObjectIx
@@ -7113,25 +7237,25 @@ BEGIN
      LEFT JOIN (SELECT ObjectHead_Parent_twObjectIx, COUNT(*) AS nCount FROM RMPObject WHERE ObjectHead_Parent_wClass = SBO_CLASS_RMTOBJECT GROUP BY ObjectHead_Parent_twObjectIx) AS cap ON cap.ObjectHead_Parent_twObjectIx = t.ObjectHead_Self_twObjectIx
          WHERE x.nResultSet = nResultSet;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7177,25 +7301,25 @@ BEGIN
                    CALL call_Error (4, 'Invalid rights',           nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7245,25 +7369,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7303,25 +7427,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7367,25 +7491,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7434,25 +7558,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7527,25 +7651,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7567,25 +7691,25 @@ BEGIN
                    CALL call_Error (21, 'Name_wsRMTObjectId is NULL', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7610,25 +7734,25 @@ BEGIN
                    CALL call_Error (21, 'Owner_twRPersonaIx is invalid', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7680,25 +7804,25 @@ BEGIN
                    CALL call_Error (21, 'Properties_bAvatar is invalid',       nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7732,25 +7856,25 @@ BEGIN
 
             -- do we want to check sName and sReference for length or invalid characters
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7825,25 +7949,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -7926,25 +8050,25 @@ BEGIN
                    CALL call_Error (21, 'Type_bSubtype must be greater than its parent\'s Type_bType', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -8029,7 +8153,7 @@ BEGIN
                                     WHERE t.ObjectHead_Self_twObjectIx = twRMTObjectIx
                                  ORDER BY p.ObjectHead_Self_twObjectIx ASC;
                           END IF ;
-
+             
                             CALL call_RMTObject_Select(0);
                               IF bType <> MVO_RMTOBJECT_TYPE_PARCEL
                             THEN
@@ -8037,7 +8161,7 @@ BEGIN
                             ELSE
                                      CALL call_RMPObject_Select (1);
                           END IF ;
-
+             
                              SET bCommit = 1;
                    ELSE
                             CALL call_Error (3, 'TObject does not exist', nError);
@@ -8055,25 +8179,25 @@ BEGIN
            SET nResult = bCommit - 1 - nError;
 
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -8145,13 +8269,13 @@ BEGIN
 
                           INSERT INTO Result
                                (
-                                 ObjectHead_Self_twObjectIx,
+                                 ObjectHead_Self_twObjectIx, 
                                  dFactor,
                                  dDistance
                                )
-                          SELECT
-                                 o.ObjectHead_Self_twObjectIx,
-                                 POW (4.0, o.Type_bType - 7) AS dFactor,
+                          SELECT 
+                                 o.ObjectHead_Self_twObjectIx, 
+                                 POW (4.0, o.Type_bType - 7) AS dFactor, 
                                  ArcLength (dRadius, dX, dY, dZ, m.d03, m.d13, m.d23) AS dDistance
                             FROM RMTObject AS o
                             JOIN RMTMatrix AS m ON m.bnMatrix = o.ObjectHead_Self_twObjectIx
@@ -8190,9 +8314,9 @@ BEGIN
                                           0                               AS nAncestor
                                      FROM RMTObject AS oa
                                      JOIN Result    AS r  ON r.ObjectHead_Self_twObjectIx = oa.ObjectHead_Self_twObjectIx
-
+ 
                                     UNION ALL
-
+ 
                                    SELECT ob.ObjectHead_Parent_wClass,
                                           ob.ObjectHead_Parent_twObjectIx,
                                           ob.ObjectHead_Self_wClass,
@@ -8238,25 +8362,25 @@ BEGIN
           DROP TEMPORARY TABLE Error;
           DROP TEMPORARY TABLE Result;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -8329,11 +8453,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to update RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_BOUND, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -8363,25 +8487,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -8448,15 +8572,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_NAME, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -8486,25 +8610,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -8571,15 +8695,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_OWNER, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -8609,25 +8733,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -8697,15 +8821,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_PROPERTIES, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -8735,25 +8859,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -8822,15 +8946,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_RESOURCE, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -8860,25 +8984,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -8962,15 +9086,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_RMPOBJECT_CLOSE, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -9000,25 +9124,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -9114,17 +9238,17 @@ BEGIN
                      IF bError = 0
                    THEN
                           SELECT twRMPObjectIx_Open AS twRMPObjectIx;
-
+   
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to insert RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_RMPOBJECT_OPEN, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -9154,25 +9278,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -9261,15 +9385,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to delete RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_RMTOBJECT_CLOSE, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -9299,25 +9423,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -9430,7 +9554,7 @@ BEGIN
                  ELSEIF bCoord = 0 -- RMTMATRIX_COORD_GEO
                    THEN
                         CALL call_RMTObject_Validate_Coord_Geo (SBO_CLASS_RMTOBJECT, twRMTObjectIx, 0, dA, dB, dC, nError);
-                   ELSE
+                   ELSE 
                         CALL call_Error (99, 'bCoord is invalid', nError);
                  END IF ;
         END IF ;
@@ -9457,17 +9581,17 @@ BEGIN
                             CALL call_RMTMatrix_Relative (SBO_CLASS_RMTOBJECT, twRMTObjectIx, twRMTObjectIx_Open);
 
                           SELECT twRMTObjectIx_Open AS twRMTObjectIx;
-
+   
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to insert RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_RMTOBJECT_OPEN, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -9497,25 +9621,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -9602,7 +9726,7 @@ BEGIN
                  ELSEIF bCoord = 0 -- RMTMATRIX_COORD_GEO
                    THEN
                         CALL call_RMTObject_Validate_Coord_Geo (ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, twRMTObjectIx, dA, dB, dC, nError);
-                   ELSE
+                   ELSE 
                         CALL call_Error (99, 'bCoord is invalid', nError);
                  END IF ;
         END IF ;
@@ -9642,15 +9766,15 @@ BEGIN
                             CALL call_RMTMatrix_Relative(ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, twRMTObjectIx);
 
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_TRANSFORM, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -9680,25 +9804,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -9767,15 +9891,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMTObject_Log (RMTOBJECT_OP_TYPE, sIPAddress, twRPersonaIx, twRMTObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -9805,25 +9929,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -9851,25 +9975,25 @@ BEGIN
 
            SET bError = IF (ROW_COUNT () = 1, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -9935,25 +10059,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10013,25 +10137,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10063,22 +10187,22 @@ BEGIN
                         Orbit_Spin_dA       = Orbit_Spin_dA,
                         Orbit_Spin_dB       = Orbit_Spin_dB
                   WHERE ObjectHead_Self_twObjectIx = twRMCObjectIx;
-
+  
                     SET bError = IF (ROW_COUNT () = 1, 0, 1);
-
+  
                      IF bError = 0
                    THEN
                           INSERT INTO Event
                                  (sType, Self_wClass, Self_twObjectIx, Child_wClass, Child_twObjectIx, wFlags, twEventIz, sJSON_Object, sJSON_Child, sJSON_Change)
                           SELECT 'ORBIT_SPIN',
-
+    
                                  SBO_CLASS_RMCOBJECT,
                                  twRMCObjectIx,
                                  SBO_CLASS_NULL,
                                  0,
                                  0,
                                  twEventIz,
-
+    
                                  CONCAT
                                  (
                                    '{ ',
@@ -10091,11 +10215,11 @@ BEGIN
                                                           ),
                                   ' }'
                                  ),
-
+    
                                  '{ }',
-
+    
                                  '{ }';
-
+    
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
                  END IF ;
         END IF ;
@@ -10106,19 +10230,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10178,25 +10302,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10274,19 +10398,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10314,7 +10438,7 @@ BEGIN
                  UPDATE RMCObject
                     SET Resource_qwResource = Resource_qwResource,
                         Resource_sName      = Resource_sName,
-                        Resource_sReference = Resource_sReference
+                        Resource_sReference = Resource_sReference       
                   WHERE ObjectHead_Self_twObjectIx = twRMCObjectIx;
 
                     SET bError = IF (ROW_COUNT () = 1, 0, 1);
@@ -10352,25 +10476,25 @@ BEGIN
                  END IF ;
         END IF ;
   END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10427,19 +10551,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10495,26 +10619,26 @@ BEGIN
                  INSERT INTO RMCObject
                         (ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMCObjectId, Type_bType, Type_bSubtype, Type_bFiction, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Orbit_Spin_tmPeriod, Orbit_Spin_tmStart, Orbit_Spin_dA, Orbit_Spin_dB, Bound_dX, Bound_dY, Bound_dZ, Properties_fMass, Properties_fGravity, Properties_fColor, Properties_fBrightness, Properties_fReflectivity)
                  VALUES (SBO_CLASS_RMCOBJECT,      twRMCObjectIx,                SBO_CLASS_RMCOBJECT,    0,                    32,                Name_wsRMCObjectId, Type_bType, Type_bSubtype, Type_bFiction, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Orbit_Spin_tmPeriod, Orbit_Spin_tmStart, Orbit_Spin_dA, Orbit_Spin_dB, Bound_dX, Bound_dY, Bound_dZ, Properties_fMass, Properties_fGravity, Properties_fColor, Properties_fBrightness, Properties_fReflectivity);
-
+  
                     SET bError = IF (ROW_COUNT () = 1, 0, 1);
-
+  
                      IF bError = 0
                    THEN
                              SET twRMCObjectIx_Open = LAST_INSERT_ID ();
-
+  
                           INSERT INTO Event
                                  (sType, Self_wClass, Self_twObjectIx, Child_wClass, Child_twObjectIx, wFlags, twEventIz, sJSON_Object, sJSON_Child, sJSON_Change)
                           SELECT 'RMCOBJECT_OPEN',
-
+    
                                  SBO_CLASS_RMCOBJECT,
                                  twRMCObjectIx,
                                  SBO_CLASS_RMCOBJECT,
                                  twRMCObjectIx_Open,
                                  SBA_SUBSCRIBE_REFRESH_EVENT_EX_FLAG_OPEN,
                                  twEventIz,
-
+    
                                  '{ }',
-
+    
                                  CONCAT
                                  (
                                    '{ ',
@@ -10574,9 +10698,9 @@ BEGIN
                                                           ),
                                   ' }'
                                  ),
-
+    
                                  '{ }';
-
+    
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
                    END IF ;
         END IF ;
@@ -10587,19 +10711,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10671,19 +10795,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10735,26 +10859,26 @@ BEGIN
                  INSERT INTO RMTObject
                         (ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMTObjectId, Type_bType, Type_bSubtype, Type_bFiction, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ, Properties_bLockToGround, Properties_bYouth, Properties_bAdult, Properties_bAvatar)
                  VALUES (SBO_CLASS_RMCOBJECT,      twRMCObjectIx,                SBO_CLASS_RMTOBJECT,    0,                    32,                Name_wsRMTObjectId, Type_bType, Type_bSubtype, Type_bFiction, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ, Properties_bLockToGround, Properties_bYouth, Properties_bAdult, Properties_bAvatar);
-
+  
                     SET bError = IF (ROW_COUNT () = 1, 0, 1);
-
+  
                      IF bError = 0
                    THEN
                              SET twRMTObjectIx = LAST_INSERT_ID ();
-
+  
                           INSERT INTO Event
                                  (sType, Self_wClass, Self_twObjectIx, Child_wClass, Child_twObjectIx, wFlags, twEventIz, sJSON_Object, sJSON_Child, sJSON_Change)
                           SELECT 'RMTOBJECT_OPEN',
-
+    
                                  SBO_CLASS_RMCOBJECT,
                                  twRMCObjectIx,
                                  SBO_CLASS_RMTOBJECT,
                                  twRMTObjectIx,
                                  SBA_SUBSCRIBE_REFRESH_EVENT_EX_FLAG_OPEN,
                                  twEventIz,
-
+    
                                  '{ }',
-
+    
                                  CONCAT
                                  (
                                    '{ ',
@@ -10806,9 +10930,9 @@ BEGIN
                                                           ),
                                   ' }'
                                  ),
-
+    
                                  '{ }';
-
+    
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
                    END IF ;
           END IF ;
@@ -10819,19 +10943,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -10924,19 +11048,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11008,19 +11132,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11042,28 +11166,28 @@ BEGIN
         INSERT INTO RMCObjectLog
                (bOp, dwIPAddress, twRPersonaIx, twRMCObjectIx)
         VALUES (bOp, dwIPAddress, twRPersonaIx, twRMCObjectIx);
-
+ 
            SET bError = IF (ROW_COUNT () = 1, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11150,7 +11274,7 @@ BEGIN
                                          ),
 
                   ', "nChildren":  ',    IFNULL (cac.nCount, 0) + IFNULL (cat.nCount, 0),
-                 ' }'
+                 ' }'               
                ) AS `Object`
           FROM Results   AS x
           JOIN RMCObject AS c on c.ObjectHead_Self_twObjectIx = x.ObjectHead_Self_twObjectIx
@@ -11158,25 +11282,25 @@ BEGIN
      LEFT JOIN (SELECT ObjectHead_Parent_twObjectIx, COUNT(*) AS nCount FROM RMTObject WHERE ObjectHead_Parent_wClass = SBO_CLASS_RMCOBJECT GROUP BY ObjectHead_Parent_twObjectIx) AS cat ON cat.ObjectHead_Parent_twObjectIx = c.ObjectHead_Self_twObjectIx
          WHERE x.nResultSet = nResultSet;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11222,25 +11346,25 @@ BEGIN
                    CALL call_Error (4, 'Invalid rights',           nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11290,25 +11414,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11330,25 +11454,25 @@ BEGIN
                    CALL call_Error (21, 'Name_wsRMCObjectId is NULL', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11407,25 +11531,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11450,25 +11574,25 @@ BEGIN
                    CALL call_Error (21, 'Owner_twRPersonaIx is invalid', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11529,25 +11653,25 @@ BEGIN
                    CALL call_Error (21, 'Properties_fReflectivity is invalid',    nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11583,25 +11707,25 @@ BEGIN
 
             -- do we want to check sName and sReference for length or invalid characters
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11676,25 +11800,25 @@ BEGIN
                     SET nError = nError;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11766,25 +11890,25 @@ BEGIN
                    CALL call_Error (21, 'Type_bSubtype must be greater than its parent\'s Type_bType', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11869,7 +11993,7 @@ BEGIN
                                     WHERE c.ObjectHead_Self_twObjectIx = twRMCObjectIx
                                  ORDER BY t.ObjectHead_Self_twObjectIx ASC;
                           END IF ;
-
+             
                             CALL call_RMCObject_Select(0);
                               IF bType <> MVO_RMCOBJECT_TYPE_SURFACE
                             THEN
@@ -11877,7 +12001,7 @@ BEGIN
                             ELSE
                                      CALL call_RMTObject_Select (1);
                           END IF ;
-
+             
                              SET bCommit = 1;
                    ELSE
                             CALL call_Error (3, 'CObject does not exist', nError);
@@ -11895,25 +12019,25 @@ BEGIN
            SET nResult = bCommit - 1 - nError;
 
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -11975,13 +12099,13 @@ BEGIN
 
                        INSERT INTO Result
                             (
-                              ObjectHead_Self_twObjectIx,
+                              ObjectHead_Self_twObjectIx, 
                               dFactor,
                               dDistance
                             )
-                       SELECT
-                              o.ObjectHead_Self_twObjectIx,
-                              POW(4.0, o.Type_bType - 7) AS dFactor,
+                       SELECT 
+                              o.ObjectHead_Self_twObjectIx, 
+                              POW(4.0, o.Type_bType - 7) AS dFactor, 
                               -1 AS dDistance
                          FROM RMCObject AS o
                         WHERE o.Name_wsRMCObjectId LIKE CONCAT(sText, '%')
@@ -12015,9 +12139,9 @@ BEGIN
                                        0                               AS nAncestor
                                   FROM RMCObject AS oa
                                   JOIN Result    AS r  ON r.ObjectHead_Self_twObjectIx = oa.ObjectHead_Self_twObjectIx
-
+ 
                                  UNION ALL
-
+ 
                                 SELECT ob.ObjectHead_Parent_wClass,
                                        ob.ObjectHead_Parent_twObjectIx,
                                        ob.ObjectHead_Self_wClass,
@@ -12052,7 +12176,7 @@ BEGIN
              END IF ;
 
                  SET bCommit = 1;
-          ELSE
+          ELSE 
                 CALL call_Error (1, 'twRMCObjectIx is invalid', nError);
         END IF ;
 
@@ -12070,19 +12194,19 @@ DELIMITER ;
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -12151,15 +12275,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_BOUND, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -12189,25 +12313,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -12274,15 +12398,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_NAME, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -12312,25 +12436,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -12400,15 +12524,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_ORBIT_SPIN, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -12438,25 +12562,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -12523,15 +12647,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_OWNER, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -12561,25 +12685,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -12650,15 +12774,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_PROPERTIES, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -12688,25 +12812,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -12775,15 +12899,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_RESOURCE, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -12813,25 +12937,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -12920,15 +13044,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to delete RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_RMCOBJECT_CLOSE, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -12958,25 +13082,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13082,17 +13206,17 @@ BEGIN
                      IF bError = 0
                    THEN
                           SELECT twRMCObjectIx_Open AS twRMCObjectIx;
-
+   
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to insert RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_RMCOBJECT_OPEN, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -13122,25 +13246,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13224,15 +13348,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to delete RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_RMTOBJECT_CLOSE, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -13262,25 +13386,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13393,7 +13517,7 @@ BEGIN
                  ELSEIF bCoord = 0 -- RMTMATRIX_COORD_GEO
                    THEN
                         CALL call_RMTObject_Validate_Coord_Geo (SBO_CLASS_RMCOBJECT, twRMCObjectIx, 0, dA, dB, dC, nError);
-                   ELSE
+                   ELSE 
                         CALL call_Error (99, 'bCoord is invalid', nError);
                  END IF ;
         END IF ;
@@ -13420,17 +13544,17 @@ BEGIN
                             CALL call_RMTMatrix_Relative (SBO_CLASS_RMCOBJECT, twRMCObjectIx, twRMTObjectIx_Open);
 
                           SELECT twRMTObjectIx_Open AS twRMTObjectIx;
-
+   
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to insert RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_RMTOBJECT_OPEN, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -13460,25 +13584,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13554,15 +13678,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_TRANSFORM, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -13592,25 +13716,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13679,15 +13803,15 @@ BEGIN
                      IF bError = 0
                    THEN
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (-1, 'Failed to update RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMCObject_Log (RMCOBJECT_OP_TYPE, sIPAddress, twRPersonaIx, twRMCObjectIx, bError);
                      IF bError = 0
                    THEN
@@ -13717,25 +13841,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13763,25 +13887,25 @@ BEGIN
 
            SET bError = IF (ROW_COUNT () = 1, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13841,25 +13965,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13919,25 +14043,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -13989,25 +14113,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14150,25 +14274,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14197,7 +14321,7 @@ BEGIN
                    THEN
                           DELETE FROM RMPObject                                        -- we actually want to delete the entire tree - all the way down to the pobject!
                            WHERE ObjectHead_Self_twObjectIx = twRMPObjectIx_Close;
-
+         
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
                  END IF ;
 
@@ -14224,25 +14348,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14294,7 +14418,7 @@ BEGIN
                           INSERT INTO RMPObject
                                  (ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMPObjectId, Type_bType, Type_bSubtype, Type_bFiction, Type_bMovable, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ)
                           VALUES (SBO_CLASS_RMROOT,         twRMRootIx,                   SBO_CLASS_RMPOBJECT,    0,                    32,                Name_wsRMPObjectId, Type_bType, Type_bSubtype, Type_bFiction, Type_bMovable, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ);
-
+         
                              SET bError = IF (ROW_COUNT () = 1, 0, 1);
 
                              SET twRMPObjectIx_Open = LAST_INSERT_ID ();
@@ -14367,25 +14491,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14437,25 +14561,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14585,25 +14709,25 @@ BEGIN
                  END IF ;
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14625,28 +14749,28 @@ BEGIN
         INSERT INTO RMRootLog
                (bOp, dwIPAddress, twRPersonaIx, twRMRootIx)
         VALUES (bOp, dwIPAddress, twRPersonaIx, twRMRootIx);
-
+ 
            SET bError = IF (ROW_COUNT () = 1, 0, 1);
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14674,9 +14798,9 @@ BEGIN
                                             IF (nResultSet = 0, OBJECTHEAD_FLAG_SUBSCRIBE_FULL, OBJECTHEAD_FLAG_SUBSCRIBE_PARTIAL),
                                             r.ObjectHead_twEventIz
                                          ),
-
+ 
                   ', "twRMRootIx": ',    r.ObjectHead_Self_twObjectIx,      -- is this necessary
-
+ 
                   ', "pName": ',         Format_Name_R
                                          (
                                             r.Name_wsRMRootId
@@ -14685,31 +14809,31 @@ BEGIN
                                          (
                                             r.Owner_twRPersonaIx
                                          ),
-                 ' }'
+                 ' }'               
                ) AS `Object`
           FROM Results  AS x
           JOIN RMRoot   AS r on r.ObjectHead_Self_twObjectIx = x.ObjectHead_Self_twObjectIx
          WHERE x.nResultSet = nResultSet;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14755,25 +14879,25 @@ BEGIN
                    CALL call_Error (4, 'Invalid rights',          nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14795,25 +14919,25 @@ BEGIN
                    CALL call_Error (21, 'Name_wsRMRootId is NULL', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14838,25 +14962,25 @@ BEGIN
                    CALL call_Error (21, 'Owner_twRPersonaIx is invalid', nError);
         END IF ;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -14921,7 +15045,7 @@ BEGIN
                                                    AND c.ObjectHead_Parent_twObjectIx = r.ObjectHead_Self_twObjectIx
                            WHERE r.ObjectHead_Self_twObjectIx = twRMRootIx
                         ORDER BY c.ObjectHead_Self_twObjectIx ASC;
-
+          
                           INSERT INTO Results
                           SELECT 2,
                                  t.ObjectHead_Self_twObjectIx
@@ -14930,7 +15054,7 @@ BEGIN
                                                    AND t.ObjectHead_Parent_twObjectIx = r.ObjectHead_Self_twObjectIx
                            WHERE r.ObjectHead_Self_twObjectIx = twRMRootIx
                         ORDER BY t.ObjectHead_Self_twObjectIx ASC;
-
+          
                           INSERT INTO Results
                           SELECT 3,
                                  p.ObjectHead_Self_twObjectIx
@@ -14939,14 +15063,14 @@ BEGIN
                                                    AND p.ObjectHead_Parent_twObjectIx = r.ObjectHead_Self_twObjectIx
                            WHERE r.ObjectHead_Self_twObjectIx = twRMRootIx
                         ORDER BY p.ObjectHead_Self_twObjectIx ASC;
-
+          
                             CALL call_RMRoot_Select(0);
                             CALL call_RMCObject_Select(1);
                             CALL call_RMTObject_Select(2);
                             CALL call_RMPObject_Select(3);
-
+          
                              SET bCommit = 1;
-                   ELSE
+                   ELSE 
                             CALL call_Error (3, 'Root does not exist', nError);
                  END IF ;
         END IF ;
@@ -14962,25 +15086,25 @@ BEGIN
            SET nResult = bCommit - 1 - nError;
 
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -15051,11 +15175,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to update RMRoot', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMRoot_Log (RMROOT_OP_NAME, sIPAddress, twRPersonaIx, twRMRootIx, bError);
                      IF bError = 0
                    THEN
@@ -15085,25 +15209,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -15174,11 +15298,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to update RMRoot', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMRoot_Log (RMROOT_OP_OWNER, sIPAddress, twRPersonaIx, twRMRootIx, bError);
                      IF bError = 0
                    THEN
@@ -15208,25 +15332,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -15314,11 +15438,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to delete RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMRoot_Log (RMROOT_OP_RMCOBJECT_CLOSE, sIPAddress, twRPersonaIx, twRMRootIx, bError);
                      IF bError = 0
                    THEN
@@ -15348,25 +15472,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -15472,17 +15596,17 @@ BEGIN
                      IF bError = 0
                    THEN
                           SELECT twRMCObjectIx_Open AS twRMCObjectIx;
-
+   
                              SET bCommit = 1;
                    ELSE
                             CALL call_Error (-1, 'Failed to insert RMCObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMRoot_Log (RMROOT_OP_RMCOBJECT_OPEN, sIPAddress, twRPersonaIx, twRMRootIx, bError);
                      IF bError = 0
                    THEN
@@ -15512,25 +15636,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -15618,11 +15742,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to delete RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMRoot_Log (RMROOT_OP_RMPOBJECT_CLOSE, sIPAddress, twRPersonaIx, twRMRootIx, bError);
                      IF bError = 0
                    THEN
@@ -15652,25 +15776,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -15766,17 +15890,17 @@ BEGIN
                      IF bError = 0
                    THEN
                           SELECT twRMPObjectIx_Open AS twRMPObjectIx;
-
+   
                              SET bCommit = 1;
                    ELSE
                             CALL call_Error (-1, 'Failed to insert RMPObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMRoot_Log (RMROOT_OP_RMPOBJECT_OPEN, sIPAddress, twRPersonaIx, twRMRootIx, bError);
                      IF bError = 0
                    THEN
@@ -15806,25 +15930,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -15912,11 +16036,11 @@ BEGIN
                             CALL call_Error (-1, 'Failed to delete RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMRoot_Log (RMROOT_OP_RMTOBJECT_CLOSE, sIPAddress, twRPersonaIx, twRMRootIx, bError);
                      IF bError = 0
                    THEN
@@ -15946,25 +16070,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -16104,17 +16228,17 @@ BEGIN
                             CALL call_RMTMatrix_Relative (SBO_CLASS_RMROOT, twRMRootIx, twRMTObjectIx_Open);
 
                           SELECT twRMTObjectIx_Open AS twRMTObjectIx;
-
+   
                              SET bCommit = 1;
                    ELSE
                             CALL call_Error (-1, 'Failed to insert RMTObject', nError);
                  END IF ;
         END IF ;
-
+       
             IF bCommit = 1
           THEN
                     SET bCommit = 0;
-
+                 
                    CALL call_RMRoot_Log (RMROOT_OP_RMTOBJECT_OPEN, sIPAddress, twRPersonaIx, twRMRootIx, bError);
                      IF bError = 0
                    THEN
@@ -16144,25 +16268,25 @@ BEGIN
 
            SET nResult = bCommit - 1 - nError;
 END$$
-
+  
 DELIMITER ;
 
 /* ************************************************************************************************************************** */
 /*
 ** Copyright 2025 Metaversal Corporation.
-**
-** Licensed under the Apache License, Version 2.0 (the "License"),
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
 **    https://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
 ** limitations under the License.
-**
+** 
 ** SPDX-License-Identifier: Apache-2.0
 */
 
@@ -16170,77 +16294,212 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE init_DefaultScene
+CREATE PROCEDURE temp_Version_0
 (
 )
 BEGIN
        DECLARE nResult INT;
 
-       CALL set_RMRoot_RMPObject_Open
-       (
-          '0.0.0.0',                 -- sIPAddress
-          1,                         -- twRPersonaIx
-          1,                         -- twRMRootIx
-          'My First Scene',          -- Name_wsRMPObjectId
-          1,                         -- Type_bType
-          0,                         -- Type_bSubtype
-          1,                         -- Type_bFiction
-          0,                         -- Type_bMovable
-          1,                         -- Owner_twRPersonaIx
-          0,                         -- Resource_qwResource
-          '',                        -- Resource_sName
-          '',                        -- Resource_sReference
-          0,                         -- Transform_Position_dX
-          0,                         -- Transform_Position_dY
-          0,                         -- Transform_Position_dZ
-          0,                         -- Transform_Rotation_dX
-          0,                         -- Transform_Rotation_dY
-          0,                         -- Transform_Rotation_dZ
-          1,                         -- Transform_Rotation_dW
-          1,                         -- Transform_Scale_dX
-          1,                         -- Transform_Scale_dY
-          1,                         -- Transform_Scale_dZ
-          150,                       -- Bound_dX
-          150,                       -- Bound_dY
-          150,                       -- Bound_dZ
-          nResult                    -- nResult
-       );
-       -- twRMPObjectIx = 1
-
-       CALL set_RMPObject_RMPObject_Open
-       (
-          '0.0.0.0',                 -- sIPAddress
-          1,                         -- twRPersonaIx
-          1,                         -- twRMPObjectIx
-          'Hello World!',            -- Name_wsRMPObjectId
-          2,                         -- Type_bType
-          0,                         -- Type_bSubtype
-          1,                         -- Type_bFiction
-          0,                         -- Type_bMovable
-          1,                         -- Owner_twRPersonaIx
-          0,                         -- Resource_qwResource
-          '',                        -- Resource_sName
-          '/scenes/hello_world.glb', -- Resource_sReference
-          0,                         -- Transform_Position_dX
-          0,                         -- Transform_Position_dY
-          0,                         -- Transform_Position_dZ
-          0,                         -- Transform_Rotation_dX
-          0,                         -- Transform_Rotation_dY
-          0,                         -- Transform_Rotation_dZ
-          1,                         -- Transform_Rotation_dW
-          1,                         -- Transform_Scale_dX
-          1,                         -- Transform_Scale_dY
-          1,                         -- Transform_Scale_dZ
-          134.65382385253906,        -- Bound_dX
-          13.596150933846705,        -- Bound_dY
-          129.60743890149325,        -- Bound_dZ
-          nResult                    -- nResult
-       );
-       -- twRMPObjectIx = 2
+            IF NOT EXISTS (SELECT 1 FROM Version WHERE nVersion = 0)
+          THEN
+                 INSERT INTO Admin
+                        ( twRPersonaIx )
+                 VALUES ( 1            );
+         
+                 INSERT INTO RMRoot
+                        ( ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMRootId, Owner_twRPersonaIx )
+                 VALUES ( 52,                       1,                            70,                     0,                    32,                'Root',          1                  );
+                 
+                 INSERT INTO RMCType
+                        (bType, sType)
+                 VALUES ( 0, ''              ),
+                        ( 1, 'Universe'      ),
+                        ( 2, 'Supercluster'  ),
+                        ( 3, 'Galaxy Cluster'),
+                        ( 4, 'Galaxy'        ),
+                        ( 5, 'Black Hole'    ),
+                        ( 6, 'Nebula'        ),
+                        ( 7, 'Star Cluster'  ),
+                        ( 8, 'Constellation' ),
+                        ( 9, 'Star System'   ),
+                        (10, 'Star'          ),
+                        (11, 'Planet System' ),
+                        (12, 'Planet'        ),
+                        (13, 'Moon'          ),
+                        (14, 'Debris'        ),
+                        (15, 'Satellite'     ),
+                        (16, 'Transport'     ),
+                        (17, 'Surface'       );
+                 
+                 INSERT INTO RMTType
+                        (bType, sType)
+                 VALUES ( 0, ''         ),
+                        ( 1, 'Root'     ),
+                        ( 2, 'Water'    ),
+                        ( 3, 'Land'     ),
+                        ( 4, 'Country'  ),
+                        ( 5, 'Territory'),
+                        ( 6, 'State'    ),
+                        ( 7, 'County'   ),
+                        ( 8, 'City'     ),
+                        ( 9, 'Community'),
+                        (10, 'Sector'   ),
+                        (11, 'Parcel'   );
+                 
+                 INSERT INTO RMPType
+                        (bType, sType)
+                 VALUES ( 0, ''         ),
+                        ( 1, 'Transport'),
+                        ( 2, 'Other'    );
+         
+                   CALL set_RMRoot_RMPObject_Open
+                      (
+                        '0.0.0.0',                   -- sIPAddress           
+                        1,                           -- twRPersonaIx         
+                        1,                           -- twRMRootIx           
+                        'My First Scene',            -- Name_wsRMPObjectId   
+                        1,                           -- Type_bType           
+                        0,                           -- Type_bSubtype        
+                        1,                           -- Type_bFiction        
+                        0,                           -- Type_bMovable        
+                        1,                           -- Owner_twRPersonaIx   
+                        0,                           -- Resource_qwResource  
+                        '',                          -- Resource_sName       
+                        '',                          -- Resource_sReference  
+                        0,                           -- Transform_Position_dX
+                        0,                           -- Transform_Position_dY
+                        0,                           -- Transform_Position_dZ
+                        0,                           -- Transform_Rotation_dX
+                        0,                           -- Transform_Rotation_dY
+                        0,                           -- Transform_Rotation_dZ
+                        1,                           -- Transform_Rotation_dW
+                        1,                           -- Transform_Scale_dX   
+                        1,                           -- Transform_Scale_dY   
+                        1,                           -- Transform_Scale_dZ   
+                        150,                         -- Bound_dX             
+                        150,                         -- Bound_dY             
+                        150,                         -- Bound_dZ             
+                        nResult                      -- nResult
+                      );
+                     -- twRMPObjectIx = 1
+         
+                   CALL set_RMPObject_RMPObject_Open
+                      (
+                        '0.0.0.0',                   -- sIPAddress           
+                        1,                           -- twRPersonaIx         
+                        1,                           -- twRMPObjectIx        
+                        'Hello World!',              -- Name_wsRMPObjectId   
+                        2,                           -- Type_bType           
+                        0,                           -- Type_bSubtype        
+                        1,                           -- Type_bFiction        
+                        0,                           -- Type_bMovable        
+                        1,                           -- Owner_twRPersonaIx   
+                        0,                           -- Resource_qwResource  
+                        '',                          -- Resource_sName       
+                        '/objects/hello_world.glb',  -- Resource_sReference  
+                        0,                           -- Transform_Position_dX
+                        0,                           -- Transform_Position_dY
+                        0,                           -- Transform_Position_dZ
+                        0,                           -- Transform_Rotation_dX
+                        0,                           -- Transform_Rotation_dY
+                        0,                           -- Transform_Rotation_dZ
+                        1,                           -- Transform_Rotation_dW
+                        1,                           -- Transform_Scale_dX   
+                        1,                           -- Transform_Scale_dY   
+                        1,                           -- Transform_Scale_dZ   
+                        134.65382385253906,          -- Bound_dX             
+                        13.596150933846705,          -- Bound_dY             
+                        129.60743890149325,          -- Bound_dZ             
+                        nResult                      -- nResult
+                      );
+                     -- twRMPObjectIx = 2
+      
+                 INSERT INTO Version
+                        ( nVersion, sDescription )
+                 VALUES ( 0,        'Initialize Database');
+        END IF ;
 END$$
-
+  
 DELIMITER ;
 
-CALL init_DefaultScene ();
+CALL temp_Version_0 ();
+
+DROP PROCEDURE temp_Version_0;
+
+/* ************************************************************************************************************************** */
+/*
+** Copyright 2025 Metaversal Corporation.
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
+**    https://www.apache.org/licenses/LICENSE-2.0
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+** 
+** SPDX-License-Identifier: Apache-2.0
+*/
+
+/* ************************************************************************************************************************** */
+
+DELIMITER $$
+
+CREATE PROCEDURE temp_Version_1
+(
+)
+BEGIN
+            IF NOT EXISTS (SELECT 1 FROM Version WHERE nVersion = 1)
+          THEN
+                     IF EXISTS (SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'MVD_RP1_Map')
+                   THEN
+                          INSERT RMCObject
+                               ( ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_Self_twObjectIx, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMCObjectId, Type_bType, Type_bSubtype, Type_bFiction, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Orbit_Spin_tmPeriod, Orbit_Spin_tmStart, Orbit_Spin_dA, Orbit_Spin_dB, Bound_dX, Bound_dY, Bound_dZ, Properties_fMass, Properties_fGravity, Properties_fColor, Properties_fBrightness, Properties_fReflectivity )
+                          SELECT ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_Self_twObjectIx, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMCObjectId, Type_bType, Type_bSubtype, Type_bFiction, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Orbit_Spin_tmPeriod, Orbit_Spin_tmStart, Orbit_Spin_dA, Orbit_Spin_dB, Bound_dX, Bound_dY, Bound_dZ, Properties_fMass, Properties_fGravity, Properties_fColor, Properties_fBrightness, Properties_fReflectivity
+                            FROM MVD_RP1_Map.RMCObject
+                        ORDER BY ObjectHead_Self_twObjectIx;
+               
+                          INSERT RMTObject
+                               ( ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_Self_twObjectIx, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMTObjectId, Type_bType, Type_bSubtype, Type_bFiction, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ, Properties_bLockToGround, Properties_bYouth, Properties_bAdult, Properties_bAvatar )
+                          SELECT ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_Self_twObjectIx, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMTObjectId, Type_bType, Type_bSubtype, Type_bFiction, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ, Properties_bLockToGround, Properties_bYouth, Properties_bAdult, Properties_bAvatar
+                            FROM MVD_RP1_Map.RMTObject
+                        ORDER BY ObjectHead_Self_twObjectIx;
+               
+                          INSERT RMTSubsurface
+                               ( bnMatrix, d00, d01, d02, d03, d10, d11, d12, d13, d20, d21, d22, d23, d30, d31, d32, d33 )
+                          SELECT bnMatrix, d00, d01, d02, d03, d10, d11, d12, d13, d20, d21, d22, d23, d30, d31, d32, d33
+                            FROM MVD_RP1_Map.RMTSubsurface
+                        ORDER BY twRMTObjectIx;
+      
+                          INSERT RMTMatrix
+                               ( twRMTObjectIx, tnGeometry, dA, dB, dC )
+                          SELECT twRMTObjectIx, tnGeometry, dA, dB, dC
+                            FROM MVD_RP1_Map.RMTMatrix
+                        ORDER BY bnMatrix;
+      
+                          INSERT RMPObject
+                               ( ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_Self_twObjectIx, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMPObjectId, Type_bType, Type_bSubtype, Type_bFiction, Type_bMovable, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ )
+                          SELECT ObjectHead_Parent_wClass, ObjectHead_Parent_twObjectIx, ObjectHead_Self_wClass, ObjectHead_Self_twObjectIx, ObjectHead_twEventIz, ObjectHead_wFlags, Name_wsRMPObjectId, Type_bType, Type_bSubtype, Type_bFiction, Type_bMovable, Owner_twRPersonaIx, Resource_qwResource, Resource_sName, Resource_sReference, Transform_Position_dX, Transform_Position_dY, Transform_Position_dZ, Transform_Rotation_dX, Transform_Rotation_dY, Transform_Rotation_dZ, Transform_Rotation_dW, Transform_Scale_dX, Transform_Scale_dY, Transform_Scale_dZ, Bound_dX, Bound_dY, Bound_dZ
+                            FROM MVD_RP1_Map.RMPObject
+                           WHERE MVD_RP1_Map.RMPObject > 2
+                        ORDER BY ObjectHead_Self_twObjectIx;
+      
+                 END IF ;
+      
+                 INSERT INTO Version
+                        ( nVersion, sDescription )
+                 VALUES ( 1,        'Copy data from old database');
+        END IF ;
+END$$
+  
+DELIMITER ;
+
+CALL temp_Version_1 ();
+
+DROP PROCEDURE temp_Version_1;
 
 /* ************************************************************************************************************************** */
