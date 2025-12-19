@@ -110,22 +110,22 @@ class MVSF_Map
 
    ProcessFabricConfig ()
    {
-      const sFabricPath = path.join (__dirname, 'web', 'public', 'config', 'fabric.msf.json');
+      const sFabricPath = path.join (__dirname, 'web', 'public', 'fabric');
 
       try
       {
-         let sContent = fs.readFileSync (sFabricPath, 'utf8');
+         let sContent = fs.readFileSync (path.join (sFabricPath, 'sample.msf'), 'utf8');
 
          // Replace all occurrences of <PUBLIC_DOMAIN> with the actual environment variable
          // Check for PUBLIC_DOMAIN first, fallback to RAILWAY_PUBLIC_DOMAIN for Railway compatibility
          const sPublicDomain = process.env.PUBLIC_DOMAIN || process.env.RAILWAY_PUBLIC_DOMAIN || '';
          sContent = sContent.replace (/<PUBLIC_DOMAIN>/g, sPublicDomain);
 
-         fs.writeFileSync (sFabricPath, sContent, 'utf8');
+         fs.writeFileSync (path.join (sFabricPath, 'fabric.msf'), sContent, 'utf8');
       }
       catch (err)
       {
-         console.log ('Error processing fabric.msf.json: ', err);
+         console.log ('Error processing sample.msf: ', err);
       }
    }
 
