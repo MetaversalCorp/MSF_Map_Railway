@@ -212,7 +212,7 @@ class MVSF_Map
 
    async InitializeDatabase (pMVSQL)
    {
-      const sDatabaseName = 'MVD_RP1_Map';
+      const sDatabaseName = 'MSF_Map';
       const sSQLFile = path.join (__dirname, 'MSF_Map.sql');
 
       try
