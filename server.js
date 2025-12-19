@@ -422,7 +422,9 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
             // Initialize database if it doesn't exist
 //            await this.InitializeDatabase (pMVSQL);
             await this.ExecSQL ('MSF_Map.sql');
+console.log ('DB Tables Installed!!!!');
             await this.ExecSQL ('tmp.sql');
+console.log ('DB Func/Proc Installed!!!!');
 
             this.ReadFromEnv (Settings.MVSF, [ "nPort", "key" ]);
 
