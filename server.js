@@ -379,9 +379,9 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
    console.log (`Database updates complete.`);
 }
 
-   async ExecSQL () 
+   async ExecSQL (sFilename) 
    {
-      const sSQLFile = path.join (__dirname, 'MSF_Map.sql');
+      const sSQLFile = path.join (__dirname, sFilename);
       const pConfig = { ...Settings.SQL.config };
       let pConn;
 
@@ -421,7 +421,8 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
          {
             // Initialize database if it doesn't exist
 //            await this.InitializeDatabase (pMVSQL);
-            await this.ExecSQL ();
+            await this.ExecSQL ('MSF_Map.sql');
+            await this.ExecSQL ('tmp.sql');
 
             this.ReadFromEnv (Settings.MVSF, [ "nPort", "key" ]);
 
