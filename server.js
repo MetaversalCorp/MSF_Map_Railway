@@ -396,19 +396,23 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
          let aStmt = sSQLContent.split ('DELIMITER');
 
          for (let i=1; i < aStmt.length; i++)
+         {
             aStmt[i] = 'DELIMTER' + aStmt[i];
+
+            console.log (aStmt[i].slice (0, 100));
+         }
 
          // Create connection
          pConn = await mysql.createConnection (pConfig);
 
+         console.log ('SQL executed BEGIN (' + sFilename + ')');
          for (let i=0; i < aStmt.length; i++)
          {
-            console.log (aStmt[i].slice (0, 100));
             // Execute SQL
             await pConn.query (aStmt[i]);
          }
 
-         console.log ('SQL executed successfully (' + sFilename + ')');
+         console.log ('SQL executed END (' + sFilename + ')');
       } 
       catch (err) 
       {
