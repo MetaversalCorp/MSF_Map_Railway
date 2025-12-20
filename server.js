@@ -401,7 +401,7 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
 
             console.log (aStmt[i].slice (0, 100));
          }
-
+/*
          // Create connection
          pConn = await mysql.createConnection (pConfig);
 
@@ -413,6 +413,7 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
          }
 
          console.log ('SQL executed END (' + sFilename + ')');
+*/         
       } 
       catch (err) 
       {
