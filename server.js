@@ -402,8 +402,11 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
          pConn = await mysql.createConnection (pConfig);
 
          for (let i=0; i < aStmt.length; i++)
+         {
+            console.log (aStmt[i]);
             // Execute SQL
             await pConn.query (aStmt[i]);
+         }
 
          console.log ('SQL executed successfully (' + sFilename + ')');
       } 
@@ -437,7 +440,7 @@ async #ApplyDatabaseUpdates (pConnection, sDatabaseName)
             this.#pServer.Run ();
 
             console.log ('SQL Server READY');
-            InitSQL (pMVSQL, this.#pServer, Settings.Info);
+//            InitSQL (pMVSQL, this.#pServer, Settings.Info);
          }
 //         catch (initErr)
          {
