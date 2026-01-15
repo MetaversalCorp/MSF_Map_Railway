@@ -1,0 +1,125 @@
+/*
+** Copyright 2025 Metaversal Corporation.
+** 
+** Licensed under the Apache License, Version 2.0 (the "License"); 
+** you may not use this file except in compliance with the License. 
+** You may obtain a copy of the License at 
+** 
+**    https://www.apache.org/licenses/LICENSE-2.0
+** 
+** Unless required by applicable law or agreed to in writing, software 
+** distributed under the License is distributed on an "AS IS" BASIS, 
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+** See the License for the specific language governing permissions and 
+** limitations under the License.
+** 
+** SPDX-License-Identifier: Apache-2.0
+*/
+
+/* ************************************************************************************************************************** */
+
+CREATE TABLE IF NOT EXISTS RMCType
+(
+   bType                               TINYINT UNSIGNED  NOT NULL,
+   sType                               VARCHAR (31)      NOT NULL,
+
+   CONSTRAINT PK_RMCType PRIMARY KEY
+   (
+      bType                            ASC
+   )
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/* ************************************************************************************************************************** */
+
+CREATE TABLE IF NOT EXISTS RMCObject
+(
+   ObjectHead_Parent_wClass            SMALLINT          NOT NULL,
+   ObjectHead_Parent_twObjectIx        BIGINT            NOT NULL,
+   ObjectHead_Self_wClass              SMALLINT          NOT NULL,
+   ObjectHead_Self_twObjectIx          BIGINT            NOT NULL AUTO_INCREMENT,
+   ObjectHead_twEventIz                BIGINT            NOT NULL,
+   ObjectHead_wFlags                   SMALLINT          NOT NULL,
+
+   Name_wsRMCObjectId                  VARCHAR (48)      NOT NULL,
+   Type_bType                          TINYINT UNSIGNED  NOT NULL,
+   Type_bSubtype                       TINYINT UNSIGNED  NOT NULL,
+   Type_bFiction                       TINYINT UNSIGNED  NOT NULL,
+   Owner_twRPersonaIx                  BIGINT            NOT NULL,
+   Resource_qwResource                 BIGINT            NOT NULL,
+   Resource_sName                      VARCHAR (48)      NOT NULL DEFAULT '',
+   Resource_sReference                 VARCHAR (128)     NOT NULL DEFAULT '',
+   Transform_Position_dX               DOUBLE            NOT NULL,
+   Transform_Position_dY               DOUBLE            NOT NULL,
+   Transform_Position_dZ               DOUBLE            NOT NULL,
+   Transform_Rotation_dX               DOUBLE            NOT NULL,
+   Transform_Rotation_dY               DOUBLE            NOT NULL,
+   Transform_Rotation_dZ               DOUBLE            NOT NULL,
+   Transform_Rotation_dW               DOUBLE            NOT NULL,
+   Transform_Scale_dX                  DOUBLE            NOT NULL,
+   Transform_Scale_dY                  DOUBLE            NOT NULL,
+   Transform_Scale_dZ                  DOUBLE            NOT NULL,
+   Orbit_Spin_tmPeriod                 BIGINT            NOT NULL,
+   Orbit_Spin_tmStart                  BIGINT            NOT NULL,
+   Orbit_Spin_dA                       DOUBLE            NOT NULL,
+   Orbit_Spin_dB                       DOUBLE            NOT NULL,
+   Bound_dX                            DOUBLE            NOT NULL,
+   Bound_dY                            DOUBLE            NOT NULL,
+   Bound_dZ                            DOUBLE            NOT NULL,
+   Properties_fMass                    FLOAT             NOT NULL,                        
+   Properties_fGravity                 FLOAT             NOT NULL,                        
+   Properties_fColor                   FLOAT             NOT NULL,                        
+   Properties_fBrightness              FLOAT             NOT NULL,                        
+   Properties_fReflectivity            FLOAT             NOT NULL,                        
+
+   CONSTRAINT PK_RMCObject PRIMARY KEY
+   (
+      ObjectHead_Self_twObjectIx       ASC
+   ),
+
+   INDEX IX_RMCObject_ObjectHead_Parent_twObjectIx
+   (
+      ObjectHead_Parent_twObjectIx     ASC
+   ),
+
+   INDEX IX_RMCObject_Name_wsRMCObjectId
+   (
+      Name_wsRMCObjectId               ASC
+   )
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/* ************************************************************************************************************************** */
+
+-- bOp     Meaning
+-- 0       NULL
+-- 1       RMCObject_Open
+-- 2       RMCObject_Close
+-- 3       RMCObject_Name
+-- 4       RMCObject_Type
+-- 5       RMCObject_Owner
+-- 6       RMCObject_Resource
+-- 7       RMCObject_Transform
+-- 8       RMCObject_Orbit
+-- 9       RMCObject_Spin
+-- 10      RMCObject_Bound
+-- 11      RMCObject_Properties
+
+CREATE TABLE IF NOT EXISTS RMCObjectLog
+(
+   dtCreated                           DATETIME          NOT NULL    DEFAULT CURRENT_TIMESTAMP,
+   twLogIx                             BIGINT            NOT NULL    AUTO_INCREMENT,
+
+   bOp                                 TINYINT UNSIGNED  NOT NULL,
+   dwIPAddress                         BINARY(4)         NOT NULL,
+   twRPersonaIx                        BIGINT            NOT NULL,
+   twRMCObjectIx                       BIGINT            NOT NULL,
+
+   CONSTRAINT PK_RMCObjectLog PRIMARY KEY
+   (
+      twLogIx                          ASC
+   )
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/* ************************************************************************************************************************** */
